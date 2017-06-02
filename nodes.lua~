@@ -311,7 +311,7 @@ minetest.register_node("geominer:marble", {
 })
 
 minetest.register_node("geominer:peridotite", {
-	description = "Peridotite",
+	description = "Marble",
 	tiles = {"geominer_peridotite_top.png", "geominer_peridotite_top.png", "geominer_peridotite.png", "geominer_peridotite.png", "geominer_peridotite.png", "geominer_peridotite.png"},
 	is_ground_content = true,
   diggable = true,
@@ -338,10 +338,10 @@ minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:ore_beryl",
     wherein        = "geominer:diorite",
-    clust_scarcity = 600,
+    clust_scarcity = 5,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,   --TODO make it so the ores only spawn in y-axis of the layer, not all the layers.
+    height_min     = -600,
     height_max     = -300,
 })
 
@@ -358,12 +358,12 @@ minetest.register_node("geominer:ore_emerald", {
 minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:ore_emerald",
-    wherein        = "geominer:granite",
-    clust_scarcity = 620,
+    wherein        = "default:stone",
+    clust_scarcity = 500,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    height_min     = -900,
+    height_max     = -600,
 })
 
 
@@ -379,12 +379,12 @@ minetest.register_node("geominer:sapphire_ore", {
 minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:sapphire_ore",
-    wherein        = "geominer:hornfels",
-    clust_scarcity = 640,
+    wherein        = "default:stone",
+    clust_scarcity = 500,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    height_min     = -1200,
+    height_max     = -900,
 })
 
 
@@ -400,12 +400,12 @@ minetest.register_node("geominer:hematite_ore", {
 minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:hematite_ore",
-    wherein        = "geominer:scoria",
-    clust_scarcity = 660,
+    wherein        = "default:stone",
+    clust_scarcity = 500,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    height_min     = -1500,
+    height_max     = -1200,
 })
 
 
@@ -421,12 +421,12 @@ minetest.register_node("geominer:agate_ore", {
 minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:agate_ore",
-    wherein        = "geominer:limestone",
-    clust_scarcity = 680,
+    wherein        = "default:limestone",
+    clust_scarcity = 500,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    height_min     = -1800,
+    height_max     = -1500,
 })
 
 
@@ -442,12 +442,12 @@ minetest.register_node("geominer:ruby_ore", {
 minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:ruby_ore",
-    wherein        = "geominer:slate",
-    clust_scarcity = 700,
+    wherein        = "default:slate",
+    clust_scarcity = 500,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    height_min     = -2100,
+    height_max     = -1800,
 })
 
 
@@ -463,12 +463,12 @@ minetest.register_node("geominer:larimar_ore", {
 minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:larimar_ore",
-    wherein        = "geominer:gneiss",
-    clust_scarcity = 720,
+    wherein        = "default:gneiss",
+    clust_scarcity = 500,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    height_min     = -2400,
+    height_max     = -2100,
 })
 
 
@@ -484,12 +484,12 @@ minetest.register_node("geominer:sunstone_ore", {
 minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:sunstone_ore",
-    wherein        = "geominer:marble",
-    clust_scarcity = 740,
+    wherein        = "default:marble",
+    clust_scarcity = 500,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    height_min     = -2700,
+    height_max     = -2400,
 })
 
 
@@ -505,12 +505,17 @@ minetest.register_node("geominer:moonstone_ore", {
 minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:moonstone_ore",
-    wherein        = "geominer:peridotite",
-    clust_scarcity = 760,
+    wherein        = "default:peridotite",
+    clust_scarcity = 500,
     clust_num_ores = 3,
     clust_size     = 3,
     height_min     = -3000,
-    height_max     = -300,
+    height_max     = -2700,
 })
+
+
+
+
+
 
 
