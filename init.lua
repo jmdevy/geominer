@@ -10,6 +10,8 @@ dofile(minetest.get_modpath("geominer").."/bushes.lua")
 dofile(minetest.get_modpath("geominer").."/rope.lua")
 dofile(minetest.get_modpath("geominer").."/mapgen.lua")
 dofile(minetest.get_modpath("geominer").."/commands.lua")
+dofile(minetest.get_modpath("geominer").."/glow.lua")
+dofile(minetest.get_modpath("geominer").."/dungeons.lua")
 
 
 
