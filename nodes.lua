@@ -128,58 +128,6 @@ minetest.register_node("geominer:sapling_emerald", {
 })
 
 
-minetest.register_node("geominer:bush_stem_sapphire", {
-	description = "Sapphire Bush Stem",
-	drawtype = "plantlike",
-	visual_scale = 1.41,
-	tiles = {"geominer_bush_stem_sapphire.png"},
-	inventory_image = "geominer_bush_stem_sapphire.png",
-	wield_image = "geominer_bush_stem_sapphire.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
-	sounds = default.node_sound_wood_defaults(),
-	selection_box = {
-		type = "fixed",
-		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 0.54, 7 / 16},
-	},
-})
-minetest.register_node("geominer:sapphire_sapling", {
-	description = "Sapphire Bush Sapling",
-	drawtype = "plantlike",
-	tiles = {"geominer_sapphire_sapling.png"},
-	inventory_image = "geominer_sapphire_sapling.png",
-	wield_image = "geominer_sapphire_sapling.png",
-	paramtype = "light",
-	sunlight_propagates = true,
-	walkable = false,
-	--on_timer = default.grow_sapling,
---	selection_box = {
---		type = "fixed",
---		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
---	},
-	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
-	sounds = default.node_sound_leaves_defaults(),
-
---	on_construct = function(pos)
---		minetest.get_node_timer(pos):start(math.random(2400,4800))
---	end,
-
---	on_place = function(itemstack, placer, pointed_thing)
---		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
---			"geominer_beryl_sapling.png",
---			-- minp, maxp to be checked, relative to sapling pos
---			-- minp_relative.y = 1 because sapling pos has been checked
---			{x = -4, y = 1, z = -4},
---			{x = 4, y = 6, z = 4},
---			-- maximum interval of interior volume check
---			4)
-
---		return itemstack
---	end,
-})
-
-
 minetest.register_node("geominer:bush_stem_hematite", {
 	description = "Hematite Bush Stem",
 	drawtype = "plantlike",
@@ -232,6 +180,319 @@ minetest.register_node("geominer:sapling_hematite", {
 })
 
 
+minetest.register_node("geominer:bush_stem_sapphire", {
+	description = "Sapphire Bush Stem",
+	drawtype = "plantlike",
+	visual_scale = 1.41,
+	tiles = {"geominer_bush_stem_sapphire.png"},
+	inventory_image = "geominer_bush_stem_sapphire.png",
+	wield_image = "geominer_bush_stem_sapphire.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 0.54, 7 / 16},
+	},
+})
+minetest.register_node("geominer:sapling_sapphire", {
+	description = "Sapphire Bush Sapling",
+	drawtype = "plantlike",
+	tiles = {"geominer_sapling_sapphire.png"},
+	inventory_image = "geominer_sapling_sapphire.png",
+	wield_image = "geominer_sapling_sapphire.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	--on_timer = default.grow_sapling,
+--	selection_box = {
+--		type = "fixed",
+--		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
+--	},
+	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
+	sounds = default.node_sound_leaves_defaults(),
+
+--	on_construct = function(pos)
+--		minetest.get_node_timer(pos):start(math.random(2400,4800))
+--	end,
+
+--	on_place = function(itemstack, placer, pointed_thing)
+--		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+--			"geominer_beryl_sapling.png",
+--			-- minp, maxp to be checked, relative to sapling pos
+--			-- minp_relative.y = 1 because sapling pos has been checked
+--			{x = -4, y = 1, z = -4},
+--			{x = 4, y = 6, z = 4},
+--			-- maximum interval of interior volume check
+--			4)
+
+--		return itemstack
+--	end,
+})
+
+
+minetest.register_node("geominer:bush_stem_agate", {
+	description = "Agate Bush Stem",
+	drawtype = "plantlike",
+	visual_scale = 1.41,
+	tiles = {"geominer_bush_stem_agate.png"},
+	inventory_image = "geominer_bush_stem_agate.png",
+	wield_image = "geominer_bush_stem_agate.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 0.54, 7 / 16},
+	},
+})
+minetest.register_node("geominer:sapling_agate", {
+	description = "Agate Bush Sapling",
+	drawtype = "plantlike",
+	tiles = {"geominer_sapling_agate.png"},
+	inventory_image = "geominer_sapling_agate.png",
+	wield_image = "geominer_sapling_agate.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	--on_timer = default.grow_sapling,
+--	selection_box = {
+--		type = "fixed",
+--		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
+--	},
+	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
+	sounds = default.node_sound_leaves_defaults(),
+
+--	on_construct = function(pos)
+--		minetest.get_node_timer(pos):start(math.random(2400,4800))
+--	end,
+
+--	on_place = function(itemstack, placer, pointed_thing)
+--		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+--			"geominer_beryl_sapling.png",
+--			-- minp, maxp to be checked, relative to sapling pos
+--			-- minp_relative.y = 1 because sapling pos has been checked
+--			{x = -4, y = 1, z = -4},
+--			{x = 4, y = 6, z = 4},
+--			-- maximum interval of interior volume check
+--			4)
+
+--		return itemstack
+--	end,
+})
+
+
+minetest.register_node("geominer:bush_stem_ruby", {
+	description = "Ruby Bush Stem",
+	drawtype = "plantlike",
+	visual_scale = 1.41,
+	tiles = {"geominer_bush_stem_ruby.png"},
+	inventory_image = "geominer_bush_stem_ruby.png",
+	wield_image = "geominer_bush_stem_ruby.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 0.54, 7 / 16},
+	},
+})
+minetest.register_node("geominer:sapling_ruby", {
+	description = "Ruby Bush Sapling",
+	drawtype = "plantlike",
+	tiles = {"geominer_sapling_ruby.png"},
+	inventory_image = "geominer_sapling_ruby.png",
+	wield_image = "geominer_sapling_ruby.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	--on_timer = default.grow_sapling,
+--	selection_box = {
+--		type = "fixed",
+--		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
+--	},
+	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
+	sounds = default.node_sound_leaves_defaults(),
+
+--	on_construct = function(pos)
+--		minetest.get_node_timer(pos):start(math.random(2400,4800))
+--	end,
+
+--	on_place = function(itemstack, placer, pointed_thing)
+--		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+--			"geominer_beryl_sapling.png",
+--			-- minp, maxp to be checked, relative to sapling pos
+--			-- minp_relative.y = 1 because sapling pos has been checked
+--			{x = -4, y = 1, z = -4},
+--			{x = 4, y = 6, z = 4},
+--			-- maximum interval of interior volume check
+--			4)
+
+--		return itemstack
+--	end,
+})
+
+
+minetest.register_node("geominer:bush_stem_larimar", {
+	description = "Larimar Bush Stem",
+	drawtype = "plantlike",
+	visual_scale = 1.41,
+	tiles = {"geominer_bush_stem_larimar.png"},
+	inventory_image = "geominer_bush_stem_larimar.png",
+	wield_image = "geominer_bush_stem_larimar.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 0.54, 7 / 16},
+	},
+})
+minetest.register_node("geominer:sapling_larimar", {
+	description = "Larimar Bush Sapling",
+	drawtype = "plantlike",
+	tiles = {"geominer_sapling_larimar.png"},
+	inventory_image = "geominer_sapling_larimar.png",
+	wield_image = "geominer_sapling_larimar.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	--on_timer = default.grow_sapling,
+--	selection_box = {
+--		type = "fixed",
+--		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
+--	},
+	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
+	sounds = default.node_sound_leaves_defaults(),
+
+--	on_construct = function(pos)
+--		minetest.get_node_timer(pos):start(math.random(2400,4800))
+--	end,
+
+--	on_place = function(itemstack, placer, pointed_thing)
+--		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+--			"geominer_beryl_sapling.png",
+--			-- minp, maxp to be checked, relative to sapling pos
+--			-- minp_relative.y = 1 because sapling pos has been checked
+--			{x = -4, y = 1, z = -4},
+--			{x = 4, y = 6, z = 4},
+--			-- maximum interval of interior volume check
+--			4)
+
+--		return itemstack
+--	end,
+})
+
+
+minetest.register_node("geominer:bush_stem_sunstone", {
+	description = "Sunstone Bush Stem",
+	drawtype = "plantlike",
+	visual_scale = 1.41,
+	tiles = {"geominer_bush_stem_sunstone.png"},
+	inventory_image = "geominer_bush_stem_sunstone.png",
+	wield_image = "geominer_bush_stem_sunstone.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 0.54, 7 / 16},
+	},
+})
+minetest.register_node("geominer:sapling_sunstone", {
+	description = "Sunstone Bush Sapling",
+	drawtype = "plantlike",
+	tiles = {"geominer_sapling_sunstone.png"},
+	inventory_image = "geominer_sapling_sunstone.png",
+	wield_image = "geominer_sapling_sunstone.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	--on_timer = default.grow_sapling,
+--	selection_box = {
+--		type = "fixed",
+--		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
+--	},
+	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
+	sounds = default.node_sound_leaves_defaults(),
+
+--	on_construct = function(pos)
+--		minetest.get_node_timer(pos):start(math.random(2400,4800))
+--	end,
+
+--	on_place = function(itemstack, placer, pointed_thing)
+--		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+--			"geominer_beryl_sapling.png",
+--			-- minp, maxp to be checked, relative to sapling pos
+--			-- minp_relative.y = 1 because sapling pos has been checked
+--			{x = -4, y = 1, z = -4},
+--			{x = 4, y = 6, z = 4},
+--			-- maximum interval of interior volume check
+--			4)
+
+--		return itemstack
+--	end,
+})
+
+
+minetest.register_node("geominer:bush_stem_moonstone", {
+	description = "Moonstone Bush Stem",
+	drawtype = "plantlike",
+	visual_scale = 1.41,
+	tiles = {"geominer_bush_stem_moonstone.png"},
+	inventory_image = "geominer_bush_stem_moonstone.png",
+	wield_image = "geominer_bush_stem_moonstone.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	groups = {choppy = 2, oddly_breakable_by_hand = 1, flammable = 2},
+	sounds = default.node_sound_wood_defaults(),
+	selection_box = {
+		type = "fixed",
+		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 0.54, 7 / 16},
+	},
+})
+minetest.register_node("geominer:sapling_moonstone", {
+	description = "Moonstone Bush Sapling",
+	drawtype = "plantlike",
+	tiles = {"geominer_sapling_moonstone.png"},
+	inventory_image = "geominer_sapling_moonstone.png",
+	wield_image = "geominer_sapling_moonstone.png",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	--on_timer = default.grow_sapling,
+--	selection_box = {
+--		type = "fixed",
+--		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
+--	},
+	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
+	sounds = default.node_sound_leaves_defaults(),
+
+--	on_construct = function(pos)
+--		minetest.get_node_timer(pos):start(math.random(2400,4800))
+--	end,
+
+--	on_place = function(itemstack, placer, pointed_thing)
+--		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
+--			"geominer_beryl_sapling.png",
+--			-- minp, maxp to be checked, relative to sapling pos
+--			-- minp_relative.y = 1 because sapling pos has been checked
+--			{x = -4, y = 1, z = -4},
+--			{x = 4, y = 6, z = 4},
+--			-- maximum interval of interior volume check
+--			4)
+
+--		return itemstack
+--	end,
+})
+
+
+
 
 
 
@@ -280,7 +541,7 @@ minetest.register_node("geominer:limestone", {
 	is_ground_content = true,
   diggable = true,
 	sounds = default.node_sound_stone_defaults(),
-  groups = {cracky = 7}
+  groups = {cracky = 8}
 })
 
 minetest.register_node("geominer:slate", {
@@ -289,7 +550,7 @@ minetest.register_node("geominer:slate", {
 	is_ground_content = true,
   diggable = true,
 	sounds = default.node_sound_stone_defaults(),
-  groups = {cracky = 7}
+  groups = {cracky = 9}
 })
 
 minetest.register_node("geominer:gneiss", {
@@ -298,7 +559,7 @@ minetest.register_node("geominer:gneiss", {
 	is_ground_content = true,
   diggable = true,
 	sounds = default.node_sound_stone_defaults(),
-  groups = {cracky = 7}
+  groups = {cracky = 10}
 })
 
 minetest.register_node("geominer:marble", {
@@ -307,7 +568,7 @@ minetest.register_node("geominer:marble", {
 	is_ground_content = true,
   diggable = true,
 	sounds = default.node_sound_stone_defaults(),
-  groups = {cracky = 7}
+  groups = {cracky = 11}
 })
 
 minetest.register_node("geominer:peridotite", {
@@ -316,7 +577,7 @@ minetest.register_node("geominer:peridotite", {
 	is_ground_content = true,
   diggable = true,
 	sounds = default.node_sound_stone_defaults(),
-  groups = {cracky = 7}
+  groups = {cracky = 12}
 })
 
 
@@ -512,5 +773,53 @@ minetest.register_ore({
     height_min     = -3000,
     height_max     = -300,
 })
+
+
+
+
+
+
+minetest.register_node("geominer:creepy_crawlies", {
+	description = "EWWWW Source",
+	drawtype = "allfaces_optional",
+	tiles = {
+		{
+			name = "creepy_crawlies.png",
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 2.0,
+			},
+		},
+	},
+	special_tiles = {
+		-- New-style water source material (mostly unused)
+		{
+			name = "creepy_crawlies.png",
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 16,
+				aspect_h = 16,
+				length = 2.0,
+			},
+			backface_culling = false,
+		},
+	},
+	alpha = 160,
+	paramtype = "light",
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	is_ground_content = false,
+	drop = "",
+	drowning = 1,
+	liquid_viscosity = 1,
+	post_effect_color = {a = 103, r = 30, g = 60, b = 90},
+	groups = {water = 3, liquid = 3, puts_out_fire = 1, cools_lava = 1},
+	sounds = default.node_sound_water_defaults(),
+})
+
 
 

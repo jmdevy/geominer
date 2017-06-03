@@ -55,6 +55,47 @@
 
 
 
+
+
+
+
+
+
+--minetest.register_on_generated(function(minp, maxp)
+    
+--	-- Do nothing if the area is above -270. That layer is all stone.
+--	if maxp.y > -270 then
+--		return
+--	end
+ 
+--	-- Get the vmanip mapgen object and the nodes and VoxelArea
+--	local vm, emin, emax = minetest.get_mapgen_object"voxelmanip"
+--	local data = vm:get_data()
+--	local area = VoxelArea:new{MinEdge=emin, MaxEdge=emax}
+
+	
+--	for i in area:iter(
+--		minp.x, minp.y, minp.z,
+--		maxp.x, maxp.y, maxp.z
+--	) do
+
+--		end
+--	end
+ 
+--	-- Return the changed nodes data, fix light and change map
+--	vm:set_data(data)
+--	vm:write_to_map()
+--end)
+
+
+
+
+
+
+
+
+
+
 minetest.clear_registered_biomes()
 
 
@@ -849,13 +890,13 @@ minetest.register_biome({
 	})
 
 minetest.register_biome({
-		name = "underground_peridorido",
+		name = "underground_peridotite",
 		--node_dust = "",
 		--node_top = "",
 		--depth_top = ,
 		--node_filler = "",
 		--depth_filler = ,
-		node_stone = "geominer:peridorido",
+		node_stone = "geominer:peridotite",
 		--node_water_top = "",
 		--depth_water_top = ,
 		--node_water = "",
