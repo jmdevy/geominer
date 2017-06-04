@@ -161,13 +161,13 @@ minetest.register_entity(":__builtin:item", {
     elseif self.itemstring_check_glow == "geominer:glowstick" then
       temp_pos = self.object:getpos()
       if self.last_glow_pos.y ~= temp_pos.y then
-        minetest.chat_send_all(temp_pos.y)
+        --minetest.chat_send_all(temp_pos.y)
         minetest.set_node(self.last_glow_pos, {name="air"})
         self.last_glow_pos = temp_pos
         minetest.set_node(self.last_glow_pos, {name="geominer:glow_drop"})
       else
         self.itemstring_check_glow = ""
-        minetest.chat_send_all("DONE")
+        --minetest.chat_send_all("DONE")
       end
     end
     
