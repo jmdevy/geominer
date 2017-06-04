@@ -1,0 +1,61 @@
+                      on_drop = function(itemstack, dropper, pos)
+    --minetest.chat_send_all(itemstack:get_name())
+    --minetest.chat_send_all(obj:get_luaentity().itemstring)
+
+    item_to_find = itemstack:get_name() .. " 4"
+
+    minetest.item_drop(itemstack, dropper, pos)
+
+
+
+
+
+
+    items = minetest.get_objects_inside_radius(pos, 5)
+    for i, obj in pairs(items) do
+      if obj:is_player() == false then
+        --minetest.chat_send_all(obj:get_luaentity().itemstring)
+        --minetest.chat_send_all(item_to_find)
+
+        no_stack_count = ""
+        no_stack_count2 = ""
+        for word in string.gmatch(obj:get_luaentity().itemstring, '([^ ]+)') do
+          no_stack_count = word
+          break
+        end
+
+        for word in string.gmatch(item_to_find, '([^ ]+)') do
+          no_stack_count2 = word
+          break
+        end
+
+
+
+        if no_stack_count == no_stack_count2 then
+          --minetest.chat_send_all(no_stack_count .. " " .. no_stack_count2)
+        end
+
+
+      end
+    end
+
+    return itemstack
+
+--    local objs = minetest.env:get_objects_inside_radius(pos, 5)
+--    glow_object = nil
+--    for k, obj in pairs(objs) do
+--      if obj:is_player() == false then
+--        minetest.chat_send_all(obj:get_luaentity)
+--        if obj.name == "geominer:glow" then
+--          glow_object = obj
+--          break
+--        end
+--      end
+--    end
+
+--    if glow_object ~= nil then
+--      item_pos = obj:getpos()
+--      minetest.set_node({x=item_pos.x, y=item_pos.y, z=item_pos.z}, {name="geominer:glow_drop"})
+--    end
+
+  end,

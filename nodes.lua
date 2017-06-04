@@ -12,18 +12,6 @@ minetest.register_node("geominer:testblock", {
 
 
 --*******************Plant Nodes
-minetest.register_node("geominer:bush_leaves", {
-	description = "Geominer Bush Leaves",
-	drawtype = "allfaces_optional",
-	waving = 1,
-	tiles = {"geominer_bush_leaves.png"},
-	paramtype = "light",
-	groups = {snappy = 3, flammable = 2, leaves = 1},
-	sounds = default.node_sound_leaves_defaults(),
-})
-
-
-
 minetest.register_node("geominer:bush_stem_beryl", {
 	description = "Beryl Bush Stem",
 	drawtype = "plantlike",

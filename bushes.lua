@@ -4,16 +4,16 @@
 minetest.register_abm{
         label = "Beryl Tree Growth",
         nodenames = {"geominer:sapling_beryl"},
-        neighbors = {"group:crumbly"},
+        neighbors = {"group:crumbly", "group:soil"},
         interval = 1,
-        chance = 100,
+        chance = 2,
         action = function(pos)
           
           apple_tree={
             axiom="A",
             rules_a="[Ffff]",
             trunk="geominer:bush_stem_beryl",
-            leaves="geominer:bush_leaves",
+            leaves="default:bush_leaves",
             angle=0,
             iterations=1,
             random_level=0,
@@ -34,14 +34,14 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_emerald"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 100,
+        chance = 500,
         action = function(pos)
           
           apple_tree={
             axiom="A",
             rules_a="[Ffff]",
             trunk="geominer:bush_stem_emerald",
-            leaves="geominer:bush_leaves",
+            leaves="default:bush_leaves",
             angle=0,
             iterations=1,
             random_level=0,
@@ -62,14 +62,14 @@ minetest.register_abm{
         nodenames = {"geominer:sapphire_sapling"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 100,
+        chance = 500,
         action = function(pos)
           
           apple_tree={
             axiom="A",
             rules_a="[Ffff]",
             trunk="geominer:bush_stem_sapphire",
-            leaves="geominer:bush_leaves",
+            leaves="default:bush_leaves",
             angle=0,
             iterations=1,
             random_level=0,
@@ -90,14 +90,14 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_hematite"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 100,
+        chance = 500,
         action = function(pos)
           
           apple_tree={
             axiom="A",
             rules_a="[Ffff]",
             trunk="geominer:bush_stem_hematite",
-            leaves="geominer:bush_leaves",
+            leaves="default:bush_leaves",
             angle=0,
             iterations=1,
             random_level=0,
@@ -118,14 +118,14 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_agate"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 100,
+        chance = 500,
         action = function(pos)
           
           apple_tree={
             axiom="A",
             rules_a="[Ffff]",
             trunk="geominer:bush_stem_agate",
-            leaves="geominer:bush_leaves",
+            leaves="default:bush_leaves",
             angle=0,
             iterations=1,
             random_level=0,
@@ -146,14 +146,14 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_ruby"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 100,
+        chance = 500,
         action = function(pos)
           
           apple_tree={
             axiom="A",
             rules_a="[Ffff]",
             trunk="geominer:bush_stem_ruby",
-            leaves="geominer:bush_leaves",
+            leaves="default:bush_leaves",
             angle=0,
             iterations=1,
             random_level=0,
@@ -174,14 +174,14 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_larimar"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 100,
+        chance = 500,
         action = function(pos)
           
           apple_tree={
             axiom="A",
             rules_a="[Ffff]",
             trunk="geominer:bush_stem_larimar",
-            leaves="geominer:bush_leaves",
+            leaves="default:bush_leaves",
             angle=0,
             iterations=1,
             random_level=0,
@@ -202,14 +202,14 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_sunstone"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 100,
+        chance = 500,
         action = function(pos)
           
           apple_tree={
             axiom="A",
             rules_a="[Ffff]",
             trunk="geominer:bush_stem_sunstone",
-            leaves="geominer:bush_leaves",
+            leaves="default:bush_leaves",
             angle=0,
             iterations=1,
             random_level=0,
@@ -230,14 +230,14 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_moonstone"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 100,
+        chance = 500,
         action = function(pos)
           
           apple_tree={
             axiom="A",
             rules_a="[Ffff]",
             trunk="geominer:bush_stem_moonstone",
-            leaves="geominer:bush_leaves",
+            leaves="default:bush_leaves",
             angle=0,
             iterations=1,
             random_level=0,
