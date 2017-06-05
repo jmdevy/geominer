@@ -176,7 +176,7 @@ local function spawn_sapling(tab)
 	end
   
   --Between 1 and 5 sapligns will be spawn
-  number_of_saplings = math.random(1, 5)
+  number_of_saplings = math.random(1, 4)
   
   for i=0, number_of_saplings do
   

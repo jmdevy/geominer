@@ -34,7 +34,7 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_emerald"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 500,
+        chance = 1500,
         action = function(pos)
           
           apple_tree={
@@ -62,7 +62,7 @@ minetest.register_abm{
         nodenames = {"geominer:sapphire_sapling"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 500,
+        chance = 1500,
         action = function(pos)
           
           apple_tree={
@@ -90,7 +90,7 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_hematite"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 500,
+        chance = 1500,
         action = function(pos)
           
           apple_tree={
@@ -118,7 +118,7 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_agate"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 500,
+        chance = 1500,
         action = function(pos)
           
           apple_tree={
@@ -146,7 +146,7 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_ruby"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 500,
+        chance = 1500,
         action = function(pos)
           
           apple_tree={
@@ -174,7 +174,7 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_larimar"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 500,
+        chance = 1500,
         action = function(pos)
           
           apple_tree={
@@ -202,7 +202,7 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_sunstone"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 500,
+        chance = 1500,
         action = function(pos)
           
           apple_tree={
@@ -230,7 +230,7 @@ minetest.register_abm{
         nodenames = {"geominer:sapling_moonstone"},
         neighbors = {"group:crumbly"},
         interval = 1,
-        chance = 500,
+        chance = 1500,
         action = function(pos)
           
           apple_tree={

@@ -1,11 +1,11 @@
-minetest.register_node("geominer:testblock", {
-	description = "Test Block",
-	tiles = {"test.png"},
-	is_ground_content = true,
-  diggable = true,
-	sounds = default.node_sound_stone_defaults(),
-	groups = {cracky = 3, hardness=1 , stone=1, use_texture_alpha = 1}, --hardness 3 refers to 30 seconds with dia pick
-})
+--minetest.register_node("geominer:testblock", {
+--	description = "Test Block",
+--	tiles = {"test.png"},
+--	is_ground_content = true,
+--  diggable = true,
+--	sounds = default.node_sound_stone_defaults(),
+--	groups = {cracky = 3, hardness=1 , stone=1, use_texture_alpha = 1}, --hardness 3 refers to 30 seconds with dia pick
+--})
 
 
 
@@ -488,6 +488,7 @@ minetest.register_node("geominer:sapling_moonstone", {
 
 --***************Nodes for layers
 minetest.register_node("geominer:diorite", {
+  walkable = true,
 	description = "diorite",
 	tiles = {"geominer_diorite.png"},
 	is_ground_content = true,
@@ -497,6 +498,7 @@ minetest.register_node("geominer:diorite", {
 })
 
 minetest.register_node("geominer:granite", {
+  walkable = true,
 	description = "granite",
 	tiles = {"geominer_granite.png"},
 	is_ground_content = true,
@@ -506,6 +508,7 @@ minetest.register_node("geominer:granite", {
 })
 
 minetest.register_node("geominer:hornfels", {
+  walkable = true,
 	description = "hornfels",
 	tiles = {"geominer_hornfels_top.png", "geominer_hornfels_top.png", "geominer_hornfels.png", "geominer_hornfels.png", "geominer_hornfels.png", "geominer_hornfels.png"},
 	is_ground_content = true,
@@ -515,6 +518,7 @@ minetest.register_node("geominer:hornfels", {
 })
 
 minetest.register_node("geominer:scoria", {
+  walkable = true,
 	description = "Scoria",
 	tiles = {"geominer_scoria.png", "geominer_scoria.png", "geominer_scoria.png", "geominer_scoria.png", "geominer_scoria.png", "geominer_scoria.png"},
 	is_ground_content = true,
@@ -524,6 +528,7 @@ minetest.register_node("geominer:scoria", {
 })
 
 minetest.register_node("geominer:limestone", {
+  walkable = true,
 	description = "Limestone",
 	tiles = {"geominer_limestone.png", "geominer_limestone.png", "geominer_limestone.png", "geominer_limestone.png", "geominer_limestone.png", "geominer_limestone.png"},
 	is_ground_content = true,
@@ -533,6 +538,7 @@ minetest.register_node("geominer:limestone", {
 })
 
 minetest.register_node("geominer:slate", {
+  walkable = true,
 	description = "Slate",
 	tiles = {"geominer_slate.png", "geominer_slate.png", "geominer_slate.png", "geominer_slate.png", "geominer_slate.png", "geominer_slate.png"},
 	is_ground_content = true,
@@ -542,6 +548,7 @@ minetest.register_node("geominer:slate", {
 })
 
 minetest.register_node("geominer:gneiss", {
+  walkable = true,
 	description = "Gneiss",
 	tiles = {"geominer_gneiss_top.png", "geominer_gneiss_top.png", "geominer_gneiss.png", "geominer_gneiss.png", "geominer_gneiss.png", "geominer_gneiss.png"},
 	is_ground_content = true,
@@ -551,6 +558,7 @@ minetest.register_node("geominer:gneiss", {
 })
 
 minetest.register_node("geominer:marble", {
+  walkable = true,
 	description = "Marble",
 	tiles = {"geominer_marble.png", "geominer_marble.png", "geominer_marble.png", "geominer_marble.png", "geominer_marble.png", "geominer_marble.png"},
 	is_ground_content = true,
@@ -560,6 +568,7 @@ minetest.register_node("geominer:marble", {
 })
 
 minetest.register_node("geominer:peridotite", {
+  walkable = true,
 	description = "Peridotite",
 	tiles = {"geominer_peridotite_top.png", "geominer_peridotite_top.png", "geominer_peridotite.png", "geominer_peridotite.png", "geominer_peridotite.png", "geominer_peridotite.png"},
 	is_ground_content = true,
@@ -575,6 +584,7 @@ minetest.register_node("geominer:peridotite", {
 
 --************Ore Nodes
 minetest.register_node("geominer:ore_beryl", {
+  walkable = true,
 	description = "Beryl Ore",
 	tiles = {"geominer_ore_beryl.png"},
 	is_ground_content = true,
@@ -587,7 +597,7 @@ minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:ore_beryl",
     wherein        = "geominer:diorite",
-    clust_scarcity = 600,
+    clust_scarcity = 700,
     clust_num_ores = 3,
     clust_size     = 3,
     height_min     = -3000,   --TODO make it so the ores only spawn in y-axis of the layer, not all the layers.
@@ -596,7 +606,8 @@ minetest.register_ore({
 
 
 minetest.register_node("geominer:ore_emerald", {
-	description = "Beryl Ore",
+  walkable = true,
+	description = "Emerald Ore",
 	tiles = {"geominer_ore_emerald.png"},
 	is_ground_content = true,
   diggable = true,
@@ -608,7 +619,7 @@ minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:ore_emerald",
     wherein        = "geominer:granite",
-    clust_scarcity = 620,
+    clust_scarcity = 720,
     clust_num_ores = 3,
     clust_size     = 3,
     height_min     = -3000,
@@ -617,7 +628,8 @@ minetest.register_ore({
 
 
 minetest.register_node("geominer:sapphire_ore", {
-	description = "Beryl Ore",
+  walkable = true,
+	description = "Sapphire Ore",
 	tiles = {"geominer_sapphire_ore.png"},
 	is_ground_content = true,
   diggable = true,
@@ -629,7 +641,7 @@ minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:sapphire_ore",
     wherein        = "geominer:hornfels",
-    clust_scarcity = 640,
+    clust_scarcity = 740,
     clust_num_ores = 3,
     clust_size     = 3,
     height_min     = -3000,
@@ -638,6 +650,7 @@ minetest.register_ore({
 
 
 minetest.register_node("geominer:hematite_ore", {
+  walkable = true,
 	description = "Hematite Ore",
 	tiles = {"geominer_hematite_ore.png"},
 	is_ground_content = true,
@@ -650,7 +663,7 @@ minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:hematite_ore",
     wherein        = "geominer:scoria",
-    clust_scarcity = 660,
+    clust_scarcity = 760,
     clust_num_ores = 3,
     clust_size     = 3,
     height_min     = -3000,
@@ -659,6 +672,7 @@ minetest.register_ore({
 
 
 minetest.register_node("geominer:agate_ore", {
+  walkable = true,
 	description = "Agate Ore",
 	tiles = {"geominer_agate_ore.png"},
 	is_ground_content = true,
@@ -671,7 +685,7 @@ minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:agate_ore",
     wherein        = "geominer:limestone",
-    clust_scarcity = 680,
+    clust_scarcity = 780,
     clust_num_ores = 3,
     clust_size     = 3,
     height_min     = -3000,
@@ -680,6 +694,7 @@ minetest.register_ore({
 
 
 minetest.register_node("geominer:ruby_ore", {
+  walkable = true,
 	description = "Ruby Ore",
 	tiles = {"geominer_ruby_ore.png"},
 	is_ground_content = true,
@@ -692,7 +707,7 @@ minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:ruby_ore",
     wherein        = "geominer:slate",
-    clust_scarcity = 700,
+    clust_scarcity = 800,
     clust_num_ores = 3,
     clust_size     = 3,
     height_min     = -3000,
@@ -701,6 +716,7 @@ minetest.register_ore({
 
 
 minetest.register_node("geominer:larimar_ore", {
+  walkable = true,
 	description = "Larimar Ore",
 	tiles = {"geominer_larimar_ore.png"},
 	is_ground_content = true,
@@ -713,7 +729,7 @@ minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:larimar_ore",
     wherein        = "geominer:gneiss",
-    clust_scarcity = 720,
+    clust_scarcity = 820,
     clust_num_ores = 3,
     clust_size     = 3,
     height_min     = -3000,
@@ -722,6 +738,7 @@ minetest.register_ore({
 
 
 minetest.register_node("geominer:sunstone_ore", {
+  walkable = true,
 	description = "Sunstone Ore",
 	tiles = {"geominer_sunstone_ore.png"},
 	is_ground_content = true,
@@ -734,7 +751,7 @@ minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:sunstone_ore",
     wherein        = "geominer:marble",
-    clust_scarcity = 740,
+    clust_scarcity = 840,
     clust_num_ores = 3,
     clust_size     = 3,
     height_min     = -3000,
@@ -743,6 +760,7 @@ minetest.register_ore({
 
 
 minetest.register_node("geominer:moonstone_ore", {
+  walkable = true,
 	description = "Moonstone Ore",
 	tiles = {"geominer_moonstone_ore.png"},
 	is_ground_content = true,
@@ -755,7 +773,7 @@ minetest.register_ore({
     ore_type       = "scatter",
     ore            = "geominer:moonstone_ore",
     wherein        = "geominer:peridotite",
-    clust_scarcity = 760,
+    clust_scarcity = 860,
     clust_num_ores = 3,
     clust_size     = 3,
     height_min     = -3000,
