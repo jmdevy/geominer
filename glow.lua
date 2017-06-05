@@ -22,42 +22,76 @@ local count = starting_throw
 local max_throw = 25
 local throw_multiplier = 1.089
 
-
 minetest.register_craftitem("geominer:glowstick_throw", {
 	description = "Glowstick throw",
 	drawtype = "normal",
 	paramtype = "light",
-  inventory_image = "geominer_glowstick.png",
-  wield_image = "geominer_glowstick.png",
+  inventory_image = "geominer_glowstick_throw.png",
+  wield_image = "geominer_glowstick_throw.png",
 	sunlight_propagates = true,
 	walkable = false,
 	climbable = false,
 	is_ground_content = false,
 	groups = {choppy = 2, oddly_breakable_by_hand = 3, flammable = 2},
-  stack_max = 1,
-  on_drop = function(itemstack, dropper, pos)
+  stack_max = 10,
+  
+  on_use = function(itemstack, user, pointed_thing)
     
-    if count > 0 and dropper:get_player_control().RMB then
     
-      itemstack:take_item(1)
-
-      obj = minetest.add_entity({x=pos.x, y=pos.y+1, z=pos.z}, "geominer:glow_en")
+    
+    if count > 1.8 and user:get_player_control().LMB then
+    
+      obj = minetest.add_entity({x=user:getpos().x, y=user:getpos().y+1.2, z=user:getpos().z}, "geominer:glow_en_throw")
       
-      dir = dropper:get_look_dir()
+      dir = user:get_look_dir()
       obj:setvelocity({x=dir.x*count, y=dir.y*count, z=dir.z*count})
       obj:setacceleration({x=dir.x*-3, y=-10, z=dir.z*-3})
       
+      itemstack:take_item()
+
+      --dropper:get_inventory():add_item("main", "geominer:glowstick_throw " .. itemstack:get_count())
+      
       count = starting_throw
     end
+    
+    
+    
+    
+    --minetest.item_drop(itemstack, dropper, pos)
+    return itemstack
+    
+    
+    
+		-- Takes one item from the stack
+--		itemstack:take_item()
+--		return itemstack
+	end,
+  
+  on_drop = function(itemstack, dropper, pos)
+    
+--    if count > 0 and dropper:get_player_control().RMB then
+    
+--      obj = minetest.add_entity({x=pos.x, y=pos.y+1.2, z=pos.z}, "geominer:glow_en_throw")
+      
+--      dir = dropper:get_look_dir()
+--      obj:setvelocity({x=dir.x*count, y=dir.y*count, z=dir.z*count})
+--      obj:setacceleration({x=dir.x*-3, y=-10, z=dir.z*-3})
+      
+--      itemstack:take_item(1)
+
+--      --dropper:get_inventory():add_item("main", "geominer:glowstick_throw " .. itemstack:get_count())
+      
+--      count = starting_throw
+--    end
     
     if count < max_throw then
       count = count * throw_multiplier
       minetest.chat_send_all(count)
     end
     
-    
-    --minetest.item_drop(itemstack, dropper, pos)
-    return itemstack
+
+--    --minetest.item_drop(itemstack, dropper, pos)
+--    return itemstack
 	end,
 })
 
@@ -68,14 +102,14 @@ minetest.register_craftitem("geominer:glowstick_throw", {
 
 
 
-minetest.register_entity("geominer:glow_en", {
+minetest.register_entity("geominer:glow_en_throw", {
 	initial_properties = {
 		hp_max = 1,
 		physical = true,
-		collisionbox = {-0.12,-0.12,-0.12, 0.12,0.12,0.12},
+		collisionbox = {-0.18,-0.18,-0.18, 0.18,0.18,0.18},
 		visual = "sprite",
 		visual_size = {x=0.5, y=0.5},
-		textures = {"geominer_glowstick.png"},
+		textures = {"geominer_glowstick_throw.png"},
 		spritediv = {x=1, y=1},
 		initial_sprite_basepos = {x=0, y=0},
 		is_visible = true,
@@ -89,42 +123,11 @@ minetest.register_entity("geominer:glow_en", {
   end,
 
 
-  	set_item = function(self, itemstring)
-		self.itemstring = itemstring
-		local stack = ItemStack(itemstring)
-		local itemtable = stack:to_table()
-		local itemname = nil
-		if itemtable then
-			itemname = stack:to_table().name
-		end
-		local item_texture = nil
-		local item_type = ""
-		if minetest.registered_items[itemname] then
-			item_texture = minetest.registered_items[itemname].inventory_image
-			item_type = minetest.registered_items[itemname].type
-		end
-		prop = {
-			is_visible = true,
-			visual = "sprite",
-			textures = {"unknown_item.png"}
-		}
-		if item_texture and item_texture ~= "" then
-			prop.visual = "sprite"
-			prop.textures = {item_texture}
-			prop.visual_size = {x=0.50, y=0.50}
-		else
-			prop.visual = "wielditem"
-			prop.textures = {itemname}
-			prop.visual_size = {x=0.20, y=0.20}
-			prop.automatic_rotate = math.pi * 0.25
-		end
-		self.object:set_properties(prop)
-	end,
-
-
 
 	on_activate = function(self, staticdata, dtime_s)
+    
     last_glow_pos = self.object:getpos()
+
 	end,
 
   last_glow_pos = {x=-1, y=-1, z=-1},
@@ -163,6 +166,105 @@ minetest.register_entity("geominer:glow_en", {
 })
 
 
+
+
+
+
+
+
+minetest.register_craftitem("geominer:glowstick", {
+	description = "Glowstick",
+	drawtype = "normal",
+	paramtype = "light",
+  inventory_image = "geominer_glowstick.png",
+  wield_image = "geominer_glowstick.png",
+	sunlight_propagates = true,
+	walkable = false,
+	climbable = false,
+	is_ground_content = false,
+	groups = {choppy = 2, oddly_breakable_by_hand = 3, flammable = 2},
+  stack_max = 10,
+  
+  on_drop = function(itemstack, dropper, pos)
+    
+    obj = minetest.add_entity({x=pos.x, y=pos.y+1.2, z=pos.z}, "geominer:glow_en")
+      
+    dir = dropper:get_look_dir()
+    obj:setvelocity({x=dir.x*4, y=dir.y*4, z=dir.z*4})
+    obj:setacceleration({x=dir.x*-3, y=-10, z=dir.z*-3})
+    
+    itemstack:take_item()
+		return itemstack
+	end,
+})
+
+
+
+
+
+
+
+
+minetest.register_entity("geominer:glow_en", {
+	initial_properties = {
+		hp_max = 1,
+		physical = true,
+		collisionbox = {-0.12,-0.12,-0.12, 0.12,0.12,0.12},
+		visual = "sprite",
+		visual_size = {x=0.5, y=0.5},
+		textures = {"geominer_glowstick.png"},
+		spritediv = {x=1, y=1},
+		initial_sprite_basepos = {x=0, y=0},
+		is_visible = true,
+		timer = 0,
+    physical = true,
+    collide_with_objects = true
+	},
+
+  get_staticdata = function(self)
+    
+  end,
+
+
+
+	on_activate = function(self, staticdata, dtime_s)
+    last_glow_pos = self.object:getpos()
+	end,
+
+  last_glow_pos = {x=-1, y=-1, z=-1},
+  
+  
+	on_step = function(self, dtime)
+
+    temp_pos = self.object:getpos()
+    if self.last_glow_pos.y ~= temp_pos.y then
+      minetest.set_node(self.last_glow_pos, {name="air"})
+      self.last_glow_pos = temp_pos
+      minetest.set_node(self.last_glow_pos, {name="geominer:glow_drop"})
+    else
+      self.itemstring_check_glow = ""
+    end
+    
+    node = minetest.get_node({x=self.last_glow_pos.x, y=self.last_glow_pos.y-0.3, z=self.last_glow_pos.z})
+    
+    if minetest.registered_nodes[node.name].walkable then
+      self.object:setvelocity({x=0,y=-2,z=0})
+      self.object:setacceleration({x=0, y=-10, z=0})
+    end
+	end,
+
+		on_punch = function(self, hitter)
+    
+    nodes_near = minetest.find_nodes_in_area({x=self.last_glow_pos.x-1, y=self.last_glow_pos.y-1, z=self.last_glow_pos.z-1}, 
+      {x=self.last_glow_pos.x+1, y=self.last_glow_pos.y+1, z=self.last_glow_pos.z+1}, {"geominer:glow_drop"})
+    for i=1, table.getn(nodes_near) do
+        minetest.set_node(nodes_near[i], {name="air"})
+    end
+    
+    hitter:get_inventory():add_item("main", "geominer:glowstick")
+
+	end,
+})
 
 
 
