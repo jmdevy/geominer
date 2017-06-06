@@ -2,8 +2,6 @@
 
 
 
-
-
 minetest.register_node("geominer:glow_drop", {
 	description = "glow_drop",
 	drawtype = "airlike",
@@ -19,8 +17,9 @@ minetest.register_node("geominer:glow_drop", {
 
 local starting_throw = 1.1
 local count = starting_throw
-local max_throw = 25
+local max_throw = 24
 local throw_multiplier = 1.089
+local pixel_count = 0
 
 minetest.register_craftitem("geominer:glowstick_throw", {
 	description = "Glowstick throw",
@@ -52,6 +51,7 @@ minetest.register_craftitem("geominer:glowstick_throw", {
       --dropper:get_inventory():add_item("main", "geominer:glowstick_throw " .. itemstack:get_count())
       
       count = starting_throw
+      pixel_count = 0
     end
     
     
@@ -84,9 +84,10 @@ minetest.register_craftitem("geominer:glowstick_throw", {
 --      count = starting_throw
 --    end
     
-    if count < max_throw then
+    if count <= max_throw then
       count = count * throw_multiplier
-      minetest.chat_send_all(count)
+      pixel_count = pixel_count + 1
+      minetest.chat_send_all(pixel_count)
     end
     
 
@@ -94,6 +95,8 @@ minetest.register_craftitem("geominer:glowstick_throw", {
 --    return itemstack
 	end,
 })
+
+
 
 
 
