@@ -8,7 +8,7 @@ local players_to_hurt = {}
 local sound_handle
 
 local caveing_max_height = -300
-local cavein_max_chance = 3000 --1 - 500 chance of cave-in spawning
+local cavein_max_chance = 3000 --1 - 3000 chance of cave-in spawning
 local min_cavein_time = 10
 local max_cavin_time = 25
 local time_to_check = 120 --seconds

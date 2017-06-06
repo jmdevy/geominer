@@ -97,8 +97,8 @@
 
 
 minetest.clear_registered_biomes()
---minetest.clear_registered_decorations()
---minetest.clear_registered_ores()
+minetest.clear_registered_ores()
+minetest.clear_registered_decorations()
 
 
 
@@ -908,6 +908,13 @@ minetest.register_biome({
 		heat_point = 50,
 		humidity_point = 50,
 	})
+
+
+
+default.register_blob_ores()
+default.register_ores()
+default.register_decorations()
+flowers.register_decorations()
 
 
 
