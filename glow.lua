@@ -395,7 +395,7 @@ minetest.register_entity("geominer:glow_en", {
     
 ----    minetest.chat_send_all(last_glow_pos.y)
     
---		local time = tonumber(minetest.setting_get("remove_items"))
+--		local time = tonumber(minetest.settings:get("remove_items"))
 --		if not time then
 --			time = 300
 --		end
