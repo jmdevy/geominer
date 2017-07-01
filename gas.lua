@@ -33,9 +33,9 @@ minetest.register_ore({
     ore            = "geominer:gas",
     wherein        = {"default:stone", "geominer:diorite", "geominer:granite", "geominer:hornfels", "geominer:scoria", "geominer:limestone", "geominer:slate", "geominer:gneiss",
       "geominer:marble", "geominer:peridotite"},
-    clust_scarcity = 21000,
-    clust_num_ores = 6,
-    clust_size     = 6,
+    clust_scarcity = 22000,
+    clust_num_ores = 5,
+    clust_size     = 5,
     height_min     = -3000,   --TODO make it so the ores only spawn in y-axis of the layer, not all the layers.
     height_max     = -300,
 })

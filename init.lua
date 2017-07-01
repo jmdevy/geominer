@@ -13,7 +13,7 @@ dofile(minetest.get_modpath("geominer").."/gas.lua")
 dofile(minetest.get_modpath("geominer").."/commands.lua")
 dofile(minetest.get_modpath("geominer").."/glow.lua")
 dofile(minetest.get_modpath("geominer").."/dungeons.lua")
-dofile(minetest.get_modpath("geominer").."/cavein.lua")
+dofile(minetest.get_modpath("geominer").."/underground_event.lua")
 
 
 

@@ -178,3 +178,36 @@ minetest.register_craft({
 	}
 })
 
+minetest.register_craft({
+	output = "geominer:rope 1",
+  shapeless = false,
+	recipe = {
+		{"", "", ""},
+		{"", "default:leaves", ""},
+		{"", "default:leaves", ""}
+	}
+})
+
+minetest.register_craft({
+	output = "geominer:glowstick 1",
+  shapeless = false,
+	recipe = {
+		{"", "", "dye:red"},
+		{"", "default:torch", ""},
+		{"dye:red", "", ""}
+	}
+})
+
+minetest.register_craft({
+	output = "geominer:glowstick_throw 1",
+  shapeless = false,
+	recipe = {
+		{"", "", "dye:blue"},
+		{"", "default:torch", ""},
+		{"dye:blue", "", ""}
+	}
+})
+
+
+
+
