@@ -22,7 +22,7 @@ minetest.register_node("geominer:rope", {
     while break_loop == false do
       time_button_track = minetest.get_us_time()
       node = minetest.get_node({x=pos.x, y=y_axis, z=pos.z})
-      if node.name == "air" or node.name == "ignore" then
+      if node.name == "air" and node.name ~= "ignore" then
         minetest.set_node({x=pos.x, y=y_axis, z=pos.z}, {name="geominer:rope"})
         y_axis = y_axis - 1
       else

@@ -1,0 +1,9 @@
+stone_layers (Stone Layers) bool true
+
+dungeon_saplings (Dungeon Saplings) bool true
+
+underground_events (Underground Events) bool true
+
+gas_spawn (Gas Spawn) bool true
+
+layer_depth (Layer Depth (needs to be negative)) int -6000 

@@ -11,34 +11,23 @@ minetest.register_node("geominer:gas", {
 	groups = {marsair=1,not_in_creative_inventory=0},
 	paramtype = "light",
 	sunlight_propagates = true,
---	on_construct = function(pos)
---		minetest.get_node_timer(pos):start(30)
---	end,
---	on_timer = function (pos, elapsed)
---		minetest.set_node(pos, {name = "marsair:air_stable"})
---	end,
---	on_place = function(itemstack, placer, pointed_thing)
---		return itemstack
---	end,
---	on_drop = function(itemstack, dropper, pos)
---		itemstack:clear()
---		return itemstack
---		--dropper:get_inventory():remove_item("main", itemstack)
---	end
 })
 
+if _geo.g("gas_spawn", false) == true then
 
-minetest.register_ore({
-    ore_type       = "scatter",
-    ore            = "geominer:gas",
-    wherein        = {"default:stone", "geominer:diorite", "geominer:granite", "geominer:hornfels", "geominer:scoria", "geominer:limestone", "geominer:slate", "geominer:gneiss",
-      "geominer:marble", "geominer:peridotite"},
-    clust_scarcity = 22000,
-    clust_num_ores = 5,
-    clust_size     = 5,
-    height_min     = -3000,   --TODO make it so the ores only spawn in y-axis of the layer, not all the layers.
-    height_max     = -300,
-})
+  minetest.register_ore({
+      ore_type       = "scatter",
+      ore            = "geominer:gas",
+      wherein        = {"default:stone", "geominer:diorite", "geominer:granite", "geominer:hornfels", "geominer:scoria", "geominer:limestone", "geominer:slate", "geominer:gneiss",
+        "geominer:marble", "geominer:peridotite"},
+      clust_scarcity = 22000,
+      clust_num_ores = 5,
+      clust_size     = 5,
+      height_min     = -3000,   --TODO make it so the ores only spawn in y-axis of the layer, not all the layers.
+      height_max     = -300,
+  })
+
+end
 
 
 
@@ -53,23 +42,18 @@ minetest.register_abm({
 	chance = 2,
 	action = function(pos, node, active_object_count, active_object_count_wider)
     
+    --Float
     if minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z}).name == "air" then
       minetest.set_node(pos, {name="air"})
       minetest.set_node({x=pos.x, y=pos.y+1, z=pos.z}, {name="geominer:gas"})
-    else
-      local next_pos = pos
-      next_pos.x = next_pos.x + (math.random(-1, 1))
-      next_pos.z = next_pos.z + (math.random(-1, 1))
-      if minetest.get_node(next_pos).name == "air" then
-        minetest.set_node(next_pos, {name="geominer:gas"})
-        minetest.set_node(pos, {name="air"})
-      end
     end
   
+    --Go boom!
     local all_objects = minetest.get_objects_inside_radius(pos, 3)
     local _,obj
     for _,obj in ipairs(all_objects) do
       if obj:is_player() then
+        minetest.set_node(pos, {name="air"})  --Get rid of the gas block so it doesn't drop as item on boom
         tnt.boom(pos, {
                   name = "geominer:gas",
                   description = "Gas",

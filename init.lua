@@ -2,6 +2,9 @@
 
 
 --Load other components
+dofile(minetest.get_modpath("geominer").."/settings.lua")
+_geo.i() -- init self
+
 dofile(minetest.get_modpath("geominer").."/tools.lua")
 dofile(minetest.get_modpath("geominer").."/items.lua")
 dofile(minetest.get_modpath("geominer").."/recipes.lua")
@@ -14,6 +17,10 @@ dofile(minetest.get_modpath("geominer").."/commands.lua")
 dofile(minetest.get_modpath("geominer").."/glow.lua")
 dofile(minetest.get_modpath("geominer").."/dungeons.lua")
 dofile(minetest.get_modpath("geominer").."/underground_event.lua")
+
+
+
+
 
 
 

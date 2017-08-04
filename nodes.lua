@@ -10,10 +10,6 @@
 
 
 
-
-
-
-
 --*******************Plant Nodes
 minetest.register_node("geominer:bush_stem_beryl", {
 	description = "Beryl Bush Stem",
@@ -31,6 +27,9 @@ minetest.register_node("geominer:bush_stem_beryl", {
 		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 0.54, 7 / 16},
 	},
 })
+
+
+
 minetest.register_node("geominer:sapling_beryl", {
 	description = "Beryl Bush Sapling",
 	drawtype = "plantlike",

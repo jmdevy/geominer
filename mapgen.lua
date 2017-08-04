@@ -102,6 +102,7 @@ minetest.clear_registered_decorations()
 
 
 
+
 -- Icesheet
 
 	minetest.register_biome({
@@ -727,187 +728,196 @@ minetest.clear_registered_decorations()
 
 
 
-	-- Underground
 
-	minetest.register_biome({
-		name = "underground",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		--node_filler = "",
-		--depth_filler = ,
-		node_stone = "default:stone",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -300,
-		y_max = -113,
-		heat_point = 50,
-		humidity_point = 50,
-	})
+if _geo.g("stone_layers", false) == true then
+  
+  --These will be implemented. Will allow the user to set
+  --the layer depth of the biomes
+local max_world_depth = -30912
+local setting_layer_depth = _geo.g("layer_depth", false)
+local number_of_layers = 10
+    -- Underground
 
-	minetest.register_biome({
-		name = "underground_diorite",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		--node_filler = "",
-		--depth_filler = ,
-		node_stone = "geominer:diorite",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -600,
-		y_max = -300,
-		heat_point = 50,
-		humidity_point = 50,
-	})
+    minetest.register_biome({
+      name = "underground",
+      --node_dust = "",
+      --node_top = "",
+      --depth_top = ,
+      --node_filler = "",
+      --depth_filler = ,
+      node_stone = "default:stone",
+      --node_water_top = "",
+      --depth_water_top = ,
+      --node_water = "",
+      --node_river_water = "",
+      y_min = -300,
+      y_max = -113,
+      heat_point = 50,
+      humidity_point = 50,
+    })
 
-minetest.register_biome({
-		name = "underground_granite",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		--node_filler = "",
-		--depth_filler = ,
-		node_stone = "geominer:granite",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -900,
-		y_max = -600,
-		heat_point = 50,
-		humidity_point = 50,
-	})
+    minetest.register_biome({
+      name = "underground_diorite",
+      --node_dust = "",
+      --node_top = "",
+      --depth_top = ,
+      --node_filler = "",
+      --depth_filler = ,
+      node_stone = "geominer:diorite",
+      --node_water_top = "",
+      --depth_water_top = ,
+      --node_water = "",
+      --node_river_water = "",
+      y_min = -600,
+      y_max = -300,
+      heat_point = 50,
+      humidity_point = 50,
+    })
 
-minetest.register_biome({
-		name = "underground_scoria",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		--node_filler = "",
-		--depth_filler = ,
-		node_stone = "geominer:scoria",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -1200,
-		y_max = -900,
-		heat_point = 50,
-		humidity_point = 50,
-	})
+  minetest.register_biome({
+      name = "underground_granite",
+      --node_dust = "",
+      --node_top = "",
+      --depth_top = ,
+      --node_filler = "",
+      --depth_filler = ,
+      node_stone = "geominer:granite",
+      --node_water_top = "",
+      --depth_water_top = ,
+      --node_water = "",
+      --node_river_water = "",
+      y_min = -900,
+      y_max = -600,
+      heat_point = 50,
+      humidity_point = 50,
+    })
 
-minetest.register_biome({
-		name = "underground_hornfels",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		--node_filler = "",
-		--depth_filler = ,
-		node_stone = "geominer:hornfels",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -1500,
-		y_max = -1200,
-		heat_point = 50,
-		humidity_point = 50,
-	})
+  minetest.register_biome({
+      name = "underground_scoria",
+      --node_dust = "",
+      --node_top = "",
+      --depth_top = ,
+      --node_filler = "",
+      --depth_filler = ,
+      node_stone = "geominer:scoria",
+      --node_water_top = "",
+      --depth_water_top = ,
+      --node_water = "",
+      --node_river_water = "",
+      y_min = -1200,
+      y_max = -900,
+      heat_point = 50,
+      humidity_point = 50,
+    })
 
-minetest.register_biome({
-		name = "underground_limestone",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		--node_filler = "",
-		--depth_filler = ,
-		node_stone = "geominer:limestone",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -1800,
-		y_max = -1500,
-		heat_point = 50,
-		humidity_point = 50,
-	})
+  minetest.register_biome({
+      name = "underground_hornfels",
+      --node_dust = "",
+      --node_top = "",
+      --depth_top = ,
+      --node_filler = "",
+      --depth_filler = ,
+      node_stone = "geominer:hornfels",
+      --node_water_top = "",
+      --depth_water_top = ,
+      --node_water = "",
+      --node_river_water = "",
+      y_min = -1500,
+      y_max = -1200,
+      heat_point = 50,
+      humidity_point = 50,
+    })
 
-minetest.register_biome({
-		name = "underground_slate",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		--node_filler = "",
-		--depth_filler = ,
-		node_stone = "geominer:slate",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -2100,
-		y_max = -1800,
-		heat_point = 50,
-		humidity_point = 50,
-	})
+  minetest.register_biome({
+      name = "underground_limestone",
+      --node_dust = "",
+      --node_top = "",
+      --depth_top = ,
+      --node_filler = "",
+      --depth_filler = ,
+      node_stone = "geominer:limestone",
+      --node_water_top = "",
+      --depth_water_top = ,
+      --node_water = "",
+      --node_river_water = "",
+      y_min = -1800,
+      y_max = -1500,
+      heat_point = 50,
+      humidity_point = 50,
+    })
 
-minetest.register_biome({
-		name = "underground_gneiss",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		--node_filler = "",
-		--depth_filler = ,
-		node_stone = "geominer:gneiss",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -2400,
-		y_max = -2100,
-		heat_point = 50,
-		humidity_point = 50,
-	})
+  minetest.register_biome({
+      name = "underground_slate",
+      --node_dust = "",
+      --node_top = "",
+      --depth_top = ,
+      --node_filler = "",
+      --depth_filler = ,
+      node_stone = "geominer:slate",
+      --node_water_top = "",
+      --depth_water_top = ,
+      --node_water = "",
+      --node_river_water = "",
+      y_min = -2100,
+      y_max = -1800,
+      heat_point = 50,
+      humidity_point = 50,
+    })
 
-minetest.register_biome({
-		name = "underground_marble",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		--node_filler = "",
-		--depth_filler = ,
-		node_stone = "geominer:marble",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -2700,
-		y_max = -2400,
-		heat_point = 50,
-		humidity_point = 50,
-	})
+  minetest.register_biome({
+      name = "underground_gneiss",
+      --node_dust = "",
+      --node_top = "",
+      --depth_top = ,
+      --node_filler = "",
+      --depth_filler = ,
+      node_stone = "geominer:gneiss",
+      --node_water_top = "",
+      --depth_water_top = ,
+      --node_water = "",
+      --node_river_water = "",
+      y_min = -2400,
+      y_max = -2100,
+      heat_point = 50,
+      humidity_point = 50,
+    })
 
-minetest.register_biome({
-		name = "underground_peridotite",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		--node_filler = "",
-		--depth_filler = ,
-		node_stone = "geominer:peridotite",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -3000,
-		y_max = -2700,
-		heat_point = 50,
-		humidity_point = 50,
-	})
+  minetest.register_biome({
+      name = "underground_marble",
+      --node_dust = "",
+      --node_top = "",
+      --depth_top = ,
+      --node_filler = "",
+      --depth_filler = ,
+      node_stone = "geominer:marble",
+      --node_water_top = "",
+      --depth_water_top = ,
+      --node_water = "",
+      --node_river_water = "",
+      y_min = -2700,
+      y_max = -2400,
+      heat_point = 50,
+      humidity_point = 50,
+    })
+
+  minetest.register_biome({
+      name = "underground_peridotite",
+      --node_dust = "",
+      --node_top = "",
+      --depth_top = ,
+      --node_filler = "",
+      --depth_filler = ,
+      node_stone = "geominer:peridotite",
+      --node_water_top = "",
+      --depth_water_top = ,
+      --node_water = "",
+      --node_river_water = "",
+      y_min = -3000,
+      y_max = -2700,
+      heat_point = 50,
+      humidity_point = 50,
+    })
+end
 
 
 
