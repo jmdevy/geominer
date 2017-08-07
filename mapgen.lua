@@ -745,7 +745,7 @@ if stone_layers == "true" then
       --node_water = "",
       --node_river_water = "",
       y_min = first_layer_start,
-      y_max = -113,
+      y_max = -100,
       heat_point = 50,
       humidity_point = 50,
     })

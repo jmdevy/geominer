@@ -11,7 +11,7 @@ underground_events (Underground Events) bool true
 gas_spawn (Gas Spawn) bool true
 
 
-#Set this to where you want the first layer of hardstone to spawn. Not accurate, it sets per chunk size.
+#Set this to where you want the first layer of hardstone to spawn. Not accurate, it sets per chunk size. The highest it can go is -100.
 first_layer_start (First Layer Start) int -300 
 
 #How many blocks deep each layer is.
