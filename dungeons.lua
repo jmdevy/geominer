@@ -22,47 +22,47 @@ local function spawn_sapling(tab)
       
       
       --Figure out what sapling to place
-        if pos.y > -600 and pos.y < -300 then --Beryl
+        if pos.y > _geo.min(1) and pos.y < _geo.max(1) then --Beryl
 
           minetest.set_node(pos, {name="geominer:sapling_beryl"})
 
 
-        elseif pos.y > -900 and pos.y < -600 then --Emerald
+        elseif pos.y > _geo.min(2) and pos.y < _geo.max(2) then --Emerald
           
           minetest.set_node(pos, {name="geominer:sapling_emerald"})
           
           
-        elseif pos.y > -1200 and pos.y < -900 then --Hematite
+        elseif pos.y > _geo.min(3) and pos.y < _geo.max(3) then --Hematite
 
           minetest.set_node(pos, {name="geominer:sapling_hematite"})
           
           
-        elseif pos.y > -1500 and pos.y < -1200 then --Sapphire
+        elseif pos.y > _geo.min(4) and pos.y < _geo.max(4) then --Sapphire
 
           minetest.set_node(pos, {name="geominer:sapling_sapphire"})
           
           
-        elseif pos.y > -1800 and pos.y < -1500 then --Agate
+        elseif pos.y > _geo.min(5) and pos.y < _geo.max(5) then --Agate
 
           minetest.set_node(pos, {name="geominer:sapling_agate"})
           
           
-        elseif pos.y > -2100 and pos.y < -1800 then --Ruby
+        elseif pos.y > _geo.min(6) and pos.y < _geo.max(6) then --Ruby
           
           minetest.set_node(pos, {name="geominer:sapling_ruby"})
           
           
-        elseif pos.y > -2400 and pos.y < -2100 then --Larimar
+        elseif pos.y > _geo.min(7) and pos.y < _geo.max(7) then --Larimar
 
           minetest.set_node(pos, {name="geominer:sapling_larimar"})
           
           
-        elseif pos.y > -2700 and pos.y < -2400 then --Sunstone
+        elseif pos.y > _geo.min(8) and pos.y < _geo.max(8) then --Sunstone
           
           minetest.set_node(pos, {name="geominer:sapling_sunstone"})
           
           
-        elseif pos.y > -3000 and pos.y < -2700 then --Moonstone
+        elseif pos.y > _geo.min(9) and pos.y < _geo.max(9) then --Moonstone
           
           minetest.set_node(pos, {name="geominer:sapling_moonstone"})
         
@@ -73,7 +73,7 @@ local function spawn_sapling(tab)
 end
 
 
-if _geo.g("dungeon_saplings", false) == true then
+if dungeon_saplings == "true" then
   core.set_gen_notify("dungeon")
   core.register_on_generated(function(minp, maxp, blockseed)
     local dungeon_object = core.get_mapgen_object("gennotify")

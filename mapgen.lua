@@ -728,14 +728,8 @@ minetest.clear_registered_decorations()
 
 
 
+if stone_layers == "true" then
 
-if _geo.g("stone_layers", false) == true then
-  
-  --These will be implemented. Will allow the user to set
-  --the layer depth of the biomes
-local max_world_depth = -30912
-local setting_layer_depth = _geo.g("layer_depth", false)
-local number_of_layers = 10
     -- Underground
 
     minetest.register_biome({
@@ -750,11 +744,13 @@ local number_of_layers = 10
       --depth_water_top = ,
       --node_water = "",
       --node_river_water = "",
-      y_min = -300,
+      y_min = first_layer_start,
       y_max = -113,
       heat_point = 50,
       humidity_point = 50,
     })
+
+
 
     minetest.register_biome({
       name = "underground_diorite",
@@ -768,8 +764,8 @@ local number_of_layers = 10
       --depth_water_top = ,
       --node_water = "",
       --node_river_water = "",
-      y_min = -600,
-      y_max = -300,
+      y_min = _geo.min(1),
+      y_max = _geo.max(1),
       heat_point = 50,
       humidity_point = 50,
     })
@@ -786,8 +782,8 @@ local number_of_layers = 10
       --depth_water_top = ,
       --node_water = "",
       --node_river_water = "",
-      y_min = -900,
-      y_max = -600,
+      y_min = _geo.min(2),
+      y_max = _geo.max(2),
       heat_point = 50,
       humidity_point = 50,
     })
@@ -804,8 +800,8 @@ local number_of_layers = 10
       --depth_water_top = ,
       --node_water = "",
       --node_river_water = "",
-      y_min = -1200,
-      y_max = -900,
+      y_min = _geo.min(3),
+      y_max = _geo.max(3),
       heat_point = 50,
       humidity_point = 50,
     })
@@ -822,8 +818,8 @@ local number_of_layers = 10
       --depth_water_top = ,
       --node_water = "",
       --node_river_water = "",
-      y_min = -1500,
-      y_max = -1200,
+      y_min = _geo.min(4),
+      y_max = _geo.max(4),
       heat_point = 50,
       humidity_point = 50,
     })
@@ -840,8 +836,8 @@ local number_of_layers = 10
       --depth_water_top = ,
       --node_water = "",
       --node_river_water = "",
-      y_min = -1800,
-      y_max = -1500,
+      y_min = _geo.min(5),
+      y_max = _geo.max(5),
       heat_point = 50,
       humidity_point = 50,
     })
@@ -858,8 +854,8 @@ local number_of_layers = 10
       --depth_water_top = ,
       --node_water = "",
       --node_river_water = "",
-      y_min = -2100,
-      y_max = -1800,
+      y_min = _geo.min(6),
+      y_max = _geo.max(6),
       heat_point = 50,
       humidity_point = 50,
     })
@@ -876,8 +872,8 @@ local number_of_layers = 10
       --depth_water_top = ,
       --node_water = "",
       --node_river_water = "",
-      y_min = -2400,
-      y_max = -2100,
+      y_min = _geo.min(7),
+      y_max = _geo.max(7),
       heat_point = 50,
       humidity_point = 50,
     })
@@ -894,8 +890,8 @@ local number_of_layers = 10
       --depth_water_top = ,
       --node_water = "",
       --node_river_water = "",
-      y_min = -2700,
-      y_max = -2400,
+      y_min = _geo.min(8),
+      y_max = _geo.max(8),
       heat_point = 50,
       humidity_point = 50,
     })
@@ -912,8 +908,8 @@ local number_of_layers = 10
       --depth_water_top = ,
       --node_water = "",
       --node_river_water = "",
-      y_min = -3000,
-      y_max = -2700,
+      y_min = _geo.min(9),
+      y_max = _geo.max(9),
       heat_point = 50,
       humidity_point = 50,
     })

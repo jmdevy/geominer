@@ -13,7 +13,7 @@ minetest.register_node("geominer:gas", {
 	sunlight_propagates = true,
 })
 
-if _geo.g("gas_spawn", false) == true then
+if gas_spawn == "true" then
 
   minetest.register_ore({
       ore_type       = "scatter",
@@ -23,8 +23,8 @@ if _geo.g("gas_spawn", false) == true then
       clust_scarcity = 22000,
       clust_num_ores = 5,
       clust_size     = 5,
-      height_min     = -3000,   --TODO make it so the ores only spawn in y-axis of the layer, not all the layers.
-      height_max     = -300,
+      height_min     = _geo.min(10),   --TODO make it so the ores only spawn in y-axis of the layer, not all the layers.
+      height_max     = first_layer_start,
   })
 
 end

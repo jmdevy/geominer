@@ -1,9 +1,18 @@
+#This toggles the stone layer biomes. If you turned this on and made a wrold, then those blocks that have spawned will stay.
 stone_layers (Stone Layers) bool true
 
+#Toggles the saplings that spawn in the default minetest dungeons.
 dungeon_saplings (Dungeon Saplings) bool true
 
+#Toggles flash floods and cave-ins.
 underground_events (Underground Events) bool true
 
+#Toggles ore nodes that spawn called 'gas.' gas explodes when the player gets near it.
 gas_spawn (Gas Spawn) bool true
 
-layer_depth (Layer Depth (needs to be negative)) int -6000 
+
+#Set this to where you want the first layer of hardstone to spawn. Not accurate, it sets per chunk size.
+first_layer_start (First Layer Start) int -300 
+
+#How many blocks deep each layer is.
+layer_width (Layer Width) int 400

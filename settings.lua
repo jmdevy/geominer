@@ -5,8 +5,31 @@ _geo.p = {}   -- mod paths for global access
 _geo.c = {}   -- configuration (defaults read from settingtypes.txt files)
 
 
+
+
+first_layer_start = 0
+layer_width = 0
+
+stone_layers = true
+dungeon_saplings = true
+underground_events = true
+gas_spawn = true
+
+
+--Layer #1 is the first layer of hardstone
+_geo.min = function (layer_num)
+  return first_layer_start - (layer_width * (layer_num))
+end
+
+_geo.max = function (layer_num)
+  return first_layer_start - (layer_width * (layer_num - 1))
+end
+
+
+
 -- @return void
 _geo.i = function ()
+  
   
     local name = minetest.get_current_modname()
     local path = minetest.get_modpath(name)
@@ -28,10 +51,14 @@ _geo.i = function ()
     _geo.f[name] = {}
     _geo.p[name] = path..DIR_DELIM
     
+    
+    first_layer_start = tonumber(_geo.g("first_layer_start", false))
+    layer_width = tonumber(_geo.g("layer_width", false))
+    stone_layers = _geo.g("stone_layers", false)
+    dungeon_saplings = _geo.g("dungeon_saplings", false)
+    underground_events = _geo.g("underground_events", false)
+    gas_spawn = _geo.g("gas_spawn", false)
 end
-
-
-
 
 
 

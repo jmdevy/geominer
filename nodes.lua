@@ -602,8 +602,8 @@ minetest.register_ore({
     clust_scarcity = 700,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,   --TODO make it so the ores only spawn in y-axis of the layer, not all the layers.
-    height_max     = -300,
+    y_min     = _geo.min(10),   --TODO make it so the ores only spawn in y-axis of the layer, not all the layers.
+    y_max     = first_layer_start,
 })
 
 
@@ -624,8 +624,8 @@ minetest.register_ore({
     clust_scarcity = 720,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    y_min     = _geo.min(10),
+    y_max     = first_layer_start,
 })
 
 
@@ -646,8 +646,8 @@ minetest.register_ore({
     clust_scarcity = 740,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    y_min     = _geo.min(10),
+    y_max     = first_layer_start,
 })
 
 
@@ -668,8 +668,8 @@ minetest.register_ore({
     clust_scarcity = 760,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    y_min     = _geo.min(10),
+    y_max     = first_layer_start,
 })
 
 
@@ -690,8 +690,8 @@ minetest.register_ore({
     clust_scarcity = 780,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    y_min     = _geo.min(10),
+    y_max     = first_layer_start,
 })
 
 
@@ -712,8 +712,8 @@ minetest.register_ore({
     clust_scarcity = 800,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    y_min     = _geo.min(10),
+    y_max     = first_layer_start,
 })
 
 
@@ -734,8 +734,8 @@ minetest.register_ore({
     clust_scarcity = 820,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    y_min     = _geo.min(10),
+    y_max     = first_layer_start,
 })
 
 
@@ -756,8 +756,8 @@ minetest.register_ore({
     clust_scarcity = 840,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    y_min     = _geo.min(10),
+    y_max     = first_layer_start,
 })
 
 
@@ -778,8 +778,8 @@ minetest.register_ore({
     clust_scarcity = 860,
     clust_num_ores = 3,
     clust_size     = 3,
-    height_min     = -3000,
-    height_max     = -300,
+    y_min     = _geo.min(10),
+    y_max     = first_layer_start,
 })
 
 

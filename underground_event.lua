@@ -7,11 +7,10 @@ local cavein_time = 0
 local players_to_hurt = {}
 local sound_handle
 
-local caveing_max_height = -300
-local cavein_max_chance = 60 --1 - 3000 chance of event spawning
+local cavein_max_chance = 1000
 local min_cavein_time = 10
 local max_cavin_time = 25
-local time_to_check = 20 --seconds
+local time_to_check = 120 --seconds
 
 local temp_player
 
@@ -25,13 +24,13 @@ function round(num, numDecimalPlaces)
   return math.floor(num * mult + 0.5) / mult
 end
 
-if _geo.g("underground_events", false) == true then
+
+
+if underground_events == "true" then
 
 
   minetest.register_globalstep(function(dtime)
-      
       time_track = time_track + dtime
-      
     if search_or_spawn > 2 then
       
 
@@ -83,7 +82,7 @@ if _geo.g("underground_events", false) == true then
         player_pos = player:getpos()
         
         --Cave-ins only happen below -300 blocks
-        if player_pos.y < caveing_max_height then
+        if player_pos.y < first_layer_start then
           if math.random(1, cavein_max_chance) == 2 then --One in whatever chance of a cave-in happening
           
             vox_manip = minetest.get_voxel_manip({x=player_pos.x-8, y=player_pos.y-1, z=player_pos.z-8}, {x=player_pos.x+8, y=player_pos.y+8, z=player_pos.z+8})
