@@ -117,11 +117,3 @@ minetest.register_tool("geominer:pick_moonstone", {
 		damage_groups = {fleshy=7},
 	}
 })
-
-
-
-
-
-
-
-

@@ -56,6 +56,12 @@ minetest.register_craftitem("geominer:moonstone", {
 })
 
 
+--Drop
+minetest.register_craftitem("geominer:glow_blue_drop", {
+	description = "Glow blue drop",
+	inventory_image = "geominer_drop.png",
+  wield_image = "geominer_drop.png"
+})
 
 
 --Sticks

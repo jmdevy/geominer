@@ -1,15 +1,3 @@
---minetest.register_node("geominer:testblock", {
---	description = "Test Block",
---	tiles = {"test.png"},
---	is_ground_content = true,
---  diggable = true,
---	sounds = default.node_sound_stone_defaults(),
---	groups = {cracky = 3, hardness=1 , stone=1, use_texture_alpha = 1}, --hardness 3 refers to 30 seconds with dia pick
---})
-
-
-
-
 --*******************Plant Nodes
 minetest.register_node("geominer:bush_stem_beryl", {
 	description = "Beryl Bush Stem",
@@ -39,30 +27,8 @@ minetest.register_node("geominer:sapling_beryl", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	--on_timer = default.grow_sapling,
---	selection_box = {
---		type = "fixed",
---		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
---	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
-
---	on_construct = function(pos)
---		minetest.get_node_timer(pos):start(math.random(2400,4800))
---	end,
-
---	on_place = function(itemstack, placer, pointed_thing)
---		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
---			"geominer_beryl_sapling.png",
---			-- minp, maxp to be checked, relative to sapling pos
---			-- minp_relative.y = 1 because sapling pos has been checked
---			{x = -4, y = 1, z = -4},
---			{x = 4, y = 6, z = 4},
---			-- maximum interval of interior volume check
---			4)
-
---		return itemstack
---	end,
 })
 
 
@@ -91,30 +57,8 @@ minetest.register_node("geominer:sapling_emerald", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	--on_timer = default.grow_sapling,
---	selection_box = {
---		type = "fixed",
---		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
---	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
-
---	on_construct = function(pos)
---		minetest.get_node_timer(pos):start(math.random(2400,4800))
---	end,
-
---	on_place = function(itemstack, placer, pointed_thing)
---		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
---			"geominer_beryl_sapling.png",
---			-- minp, maxp to be checked, relative to sapling pos
---			-- minp_relative.y = 1 because sapling pos has been checked
---			{x = -4, y = 1, z = -4},
---			{x = 4, y = 6, z = 4},
---			-- maximum interval of interior volume check
---			4)
-
---		return itemstack
---	end,
 })
 
 
@@ -143,30 +87,8 @@ minetest.register_node("geominer:sapling_hematite", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	--on_timer = default.grow_sapling,
---	selection_box = {
---		type = "fixed",
---		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
---	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
-
---	on_construct = function(pos)
---		minetest.get_node_timer(pos):start(math.random(2400,4800))
---	end,
-
---	on_place = function(itemstack, placer, pointed_thing)
---		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
---			"geominer_beryl_sapling.png",
---			-- minp, maxp to be checked, relative to sapling pos
---			-- minp_relative.y = 1 because sapling pos has been checked
---			{x = -4, y = 1, z = -4},
---			{x = 4, y = 6, z = 4},
---			-- maximum interval of interior volume check
---			4)
-
---		return itemstack
---	end,
 })
 
 
@@ -195,30 +117,8 @@ minetest.register_node("geominer:sapling_sapphire", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	--on_timer = default.grow_sapling,
---	selection_box = {
---		type = "fixed",
---		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
---	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
-
---	on_construct = function(pos)
---		minetest.get_node_timer(pos):start(math.random(2400,4800))
---	end,
-
---	on_place = function(itemstack, placer, pointed_thing)
---		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
---			"geominer_beryl_sapling.png",
---			-- minp, maxp to be checked, relative to sapling pos
---			-- minp_relative.y = 1 because sapling pos has been checked
---			{x = -4, y = 1, z = -4},
---			{x = 4, y = 6, z = 4},
---			-- maximum interval of interior volume check
---			4)
-
---		return itemstack
---	end,
 })
 
 
@@ -247,30 +147,8 @@ minetest.register_node("geominer:sapling_agate", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	--on_timer = default.grow_sapling,
---	selection_box = {
---		type = "fixed",
---		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
---	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
-
---	on_construct = function(pos)
---		minetest.get_node_timer(pos):start(math.random(2400,4800))
---	end,
-
---	on_place = function(itemstack, placer, pointed_thing)
---		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
---			"geominer_beryl_sapling.png",
---			-- minp, maxp to be checked, relative to sapling pos
---			-- minp_relative.y = 1 because sapling pos has been checked
---			{x = -4, y = 1, z = -4},
---			{x = 4, y = 6, z = 4},
---			-- maximum interval of interior volume check
---			4)
-
---		return itemstack
---	end,
 })
 
 
@@ -299,30 +177,8 @@ minetest.register_node("geominer:sapling_ruby", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	--on_timer = default.grow_sapling,
---	selection_box = {
---		type = "fixed",
---		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
---	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
-
---	on_construct = function(pos)
---		minetest.get_node_timer(pos):start(math.random(2400,4800))
---	end,
-
---	on_place = function(itemstack, placer, pointed_thing)
---		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
---			"geominer_beryl_sapling.png",
---			-- minp, maxp to be checked, relative to sapling pos
---			-- minp_relative.y = 1 because sapling pos has been checked
---			{x = -4, y = 1, z = -4},
---			{x = 4, y = 6, z = 4},
---			-- maximum interval of interior volume check
---			4)
-
---		return itemstack
---	end,
 })
 
 
@@ -351,30 +207,8 @@ minetest.register_node("geominer:sapling_larimar", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	--on_timer = default.grow_sapling,
---	selection_box = {
---		type = "fixed",
---		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
---	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
-
---	on_construct = function(pos)
---		minetest.get_node_timer(pos):start(math.random(2400,4800))
---	end,
-
---	on_place = function(itemstack, placer, pointed_thing)
---		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
---			"geominer_beryl_sapling.png",
---			-- minp, maxp to be checked, relative to sapling pos
---			-- minp_relative.y = 1 because sapling pos has been checked
---			{x = -4, y = 1, z = -4},
---			{x = 4, y = 6, z = 4},
---			-- maximum interval of interior volume check
---			4)
-
---		return itemstack
---	end,
 })
 
 
@@ -403,30 +237,8 @@ minetest.register_node("geominer:sapling_sunstone", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	--on_timer = default.grow_sapling,
---	selection_box = {
---		type = "fixed",
---		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
---	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
-
---	on_construct = function(pos)
---		minetest.get_node_timer(pos):start(math.random(2400,4800))
---	end,
-
---	on_place = function(itemstack, placer, pointed_thing)
---		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
---			"geominer_beryl_sapling.png",
---			-- minp, maxp to be checked, relative to sapling pos
---			-- minp_relative.y = 1 because sapling pos has been checked
---			{x = -4, y = 1, z = -4},
---			{x = 4, y = 6, z = 4},
---			-- maximum interval of interior volume check
---			4)
-
---		return itemstack
---	end,
 })
 
 
@@ -455,30 +267,8 @@ minetest.register_node("geominer:sapling_moonstone", {
 	paramtype = "light",
 	sunlight_propagates = true,
 	walkable = false,
-	--on_timer = default.grow_sapling,
---	selection_box = {
---		type = "fixed",
---		fixed = {-4 / 16, -0.5, -4 / 16, 4 / 16, 7 / 16, 4 / 16}
---	},
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
-
---	on_construct = function(pos)
---		minetest.get_node_timer(pos):start(math.random(2400,4800))
---	end,
-
---	on_place = function(itemstack, placer, pointed_thing)
---		itemstack = default.sapling_on_place(itemstack, placer, pointed_thing,
---			"geominer_beryl_sapling.png",
---			-- minp, maxp to be checked, relative to sapling pos
---			-- minp_relative.y = 1 because sapling pos has been checked
---			{x = -4, y = 1, z = -4},
---			{x = 4, y = 6, z = 4},
---			-- maximum interval of interior volume check
---			4)
-
---		return itemstack
---	end,
 })
 
 

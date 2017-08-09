@@ -14,6 +14,8 @@ stone_layers = true
 dungeon_saplings = true
 underground_events = true
 gas_spawn = true
+spawn_glow_crystals = true
+drop_glow_entities = true
 
 
 --Layer #1 is the first layer of hardstone
@@ -58,6 +60,8 @@ _geo.i = function ()
     dungeon_saplings = _geo.g("dungeon_saplings", false)
     underground_events = _geo.g("underground_events", false)
     gas_spawn = _geo.g("gas_spawn", false)
+    spawn_glow_crystals = _geo.g("spawn_glow_crystals", false)
+    drop_glow_entities = _geo.g("drop_glow_entities", false)
 end
 
 

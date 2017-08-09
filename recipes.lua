@@ -188,12 +188,14 @@ minetest.register_craft({
 	}
 })
 
+
+--Glowsticks
 minetest.register_craft({
 	output = "geominer:glowstick 1",
   shapeless = false,
 	recipe = {
 		{"", "", "dye:red"},
-		{"", "default:torch", ""},
+		{"", "geominer:glow_blue_drop", ""},
 		{"dye:red", "", ""}
 	}
 })
@@ -203,11 +205,7 @@ minetest.register_craft({
   shapeless = false,
 	recipe = {
 		{"", "", "dye:blue"},
-		{"", "default:torch", ""},
+		{"", "geominer:glow_blue_drop", ""},
 		{"dye:blue", "", ""}
 	}
 })
-
-
-
-

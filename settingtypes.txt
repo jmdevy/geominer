@@ -16,3 +16,9 @@ first_layer_start (First Layer Start) int -300
 
 #How many blocks deep each layer is.
 layer_width (Layer Width) int 400
+
+#Toggles spawning of crystals that drop glow entites
+spawn_glow_crystals (Spawn Glow Crystals) bool true
+
+#Toggles the dropping of glow entities from glow crystals
+drop_glow_entities (Drop Glow Entities) bool true

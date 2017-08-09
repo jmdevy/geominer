@@ -60,17 +60,5 @@ minetest.register_node("geominer:rope", {
     end
       
   end,
-
-
 })
-
-
-
-
-
-
-
-
-
-
 
