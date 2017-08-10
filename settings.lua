@@ -16,6 +16,8 @@ underground_events = true
 gas_spawn = true
 spawn_glow_crystals = true
 drop_glow_entities = true
+cavein_event = true
+flash_flood_event = true
 
 
 --Layer #1 is the first layer of hardstone
@@ -62,6 +64,8 @@ _geo.i = function ()
     gas_spawn = _geo.g("gas_spawn", false)
     spawn_glow_crystals = _geo.g("spawn_glow_crystals", false)
     drop_glow_entities = _geo.g("drop_glow_entities", false)
+    cavein_event = _geo.g("cavein_event", false)
+    flash_flood_event = _geo.g("flash_flood_event", false)
 end
 
 

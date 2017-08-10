@@ -10,7 +10,7 @@ local sound_handle
 local cavein_max_chance = 1000
 local min_cavein_time = 10
 local max_cavin_time = 25
-local time_to_check = 120 --seconds
+local time_to_check = 130 --seconds
 
 local temp_player
 
@@ -91,9 +91,9 @@ if underground_events == "true" then
             e1, e2 = vox_manip:get_emerged_area()
             area = VoxelArea:new{MinEdge=e1, MaxEdge=e2}
             
-            water_cavin = math.random(1, 1)
+            water_cavin = math.random(1, 2)
             
-            if water_cavin == 1 then  --water
+            if water_cavin == 1 and flash_flood_event == "true" then  --flash-flood
               
               flood_life = 0
               
@@ -124,7 +124,7 @@ if underground_events == "true" then
                     end
                 end
               end
-            else  --cavin
+            elseif cavein_event == "true" then --cave-in
             
               for i in area:iterp(e1, e2) do
                 

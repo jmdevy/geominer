@@ -913,6 +913,26 @@ if stone_layers == "true" then
       heat_point = 50,
       humidity_point = 50,
     })
+  
+  minetest.register_biome({
+		name = "test",
+		--node_dust = "default:snowblock",
+		--node_top = "default:snowblock",
+		--depth_top = 1,
+		--node_filler = "default:snowblock",
+		--depth_filler = 3,
+		--node_stone = "default:ice",
+		--node_water_top = "default:ice",
+		--depth_water_top = 10,
+		node_water = "default:water_source",
+		--node_river_water = "default:ice",
+		--node_riverbed = "default:gravel",
+		--depth_riverbed = 2,
+		y_min = _geo.min(10),
+		y_max = _geo.max(10),
+		heat_point = 50,
+		humidity_point = 50,
+	})
 end
 
 

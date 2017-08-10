@@ -4,8 +4,14 @@ stone_layers (Stone Layers) bool true
 #Toggles the saplings that spawn in the default minetest dungeons.
 dungeon_saplings (Dungeon Saplings) bool true
 
-#Toggles flash floods and cave-ins.
+#Toggles flash floods and cave-ins. Using this settings if also more efficent for your computer since it will never check for cave-in or flash flood if disabled.
 underground_events (Underground Events) bool true
+
+#Toggles cave-ins.
+cavein_event (Cave-in Event) bool true
+
+#Toggles flash floods.
+flash_flood_event (Flash Flood Event) bool true
 
 #Toggles ore nodes that spawn called 'gas.' gas explodes when the player gets near it.
 gas_spawn (Gas Spawn) bool true
