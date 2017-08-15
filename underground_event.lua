@@ -76,15 +76,20 @@ if underground_events == "true" then
         rand_index = math.random(1, #nodes_to_fall)
       end
       
-      --make the nodes fall. Also check if it is an air node
-      if data[area:index(nodes_to_fall[rand_index].pos.x, nodes_to_fall[rand_index].pos.y, nodes_to_fall[rand_index].pos.z)] ~= c_air then
-        minetest.set_node(nodes_to_fall[rand_index].pos, {name=nodes_to_fall[rand_index].falling_node})
-        minetest.check_for_falling(nodes_to_fall[rand_index].pos)
-      end
+      if nodes_to_fall[rand_index] ~= nil then
+        --make the nodes fall. Also check if it is an air node
+        if data[area:index(nodes_to_fall[rand_index].pos.x, nodes_to_fall[rand_index].pos.y, nodes_to_fall[rand_index].pos.z)] ~= c_air then
+          minetest.set_node(nodes_to_fall[rand_index].pos, {name=nodes_to_fall[rand_index].falling_node})
+          minetest.check_for_falling(nodes_to_fall[rand_index].pos)
+        end
+        
+        --Get the node above the node that fell so it has a chance to fall aswell. Also check if it is an air node
+        if data[area:index(nodes_to_fall[rand_index].pos.x, nodes_to_fall[rand_index].pos.y+1, nodes_to_fall[rand_index].pos.z)] ~= c_air then
+          nodes_to_fall[rand_index].pos.y = nodes_to_fall[rand_index].pos.y + 1
+        else
+          table.remove(nodes_to_fall, rand_index)
+        end
       
-      --Get the node above the node that fell so it has a chance to fall aswell. Also check if it is an air node
-      if data[area:index(nodes_to_fall[rand_index].pos.x, nodes_to_fall[rand_index].pos.y+1, nodes_to_fall[rand_index].pos.z)] ~= c_air then
-        nodes_to_fall[rand_index].pos.y = nodes_to_fall[rand_index].pos.y + 1
       end
       
       --Check if cave-in should end
