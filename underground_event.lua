@@ -39,7 +39,7 @@ cavein_ids[7] = {id=minetest.get_content_id("geominer:gneiss"), falling_name="ge
 cavein_ids[8] = {id=minetest.get_content_id("geominer:marble"), falling_name="geominer:marble_falling"}
 cavein_ids[9] = {id=minetest.get_content_id("geominer:peridotite"), falling_name="geominer:peridotite_falling"}
 cavein_ids[10] = {id=minetest.get_content_id("default:stone"), falling_name="geominer:normal_stone_falling"}
-cavein_ids[11] = {id=minetest.get_content_id("geominer:hell_stone"), falling_name="geominer:normal_stone_falling"}
+cavein_ids[11] = {id=minetest.get_content_id("geominer:hell_stone"), falling_name="geominer:hell_stone_falling"}
 
 function GetFallingNode(id)
   for index, value in ipairs(cavein_ids) do
