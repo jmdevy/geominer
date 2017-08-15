@@ -357,6 +357,7 @@ minetest.register_node("geominer:peridotite", {
 
 --******Falling nodes for cave-ins
 minetest.register_node("geominer:diorite_falling", {
+  drop = "geominer:diorite",
   walkable = true,
 	description = "diorite falling",
 	tiles = {"geominer_diorite.png"},
@@ -367,6 +368,7 @@ minetest.register_node("geominer:diorite_falling", {
 })
 
 minetest.register_node("geominer:granite_falling", {
+  drop = "geominer:granite",
   walkable = true,
 	description = "granite falling",
 	tiles = {"geominer_granite.png"},
@@ -377,6 +379,7 @@ minetest.register_node("geominer:granite_falling", {
 })
 
 minetest.register_node("geominer:hornfels_falling", {
+  drop = "geominer:hornfels",
   walkable = true,
 	description = "hornfels falling",
 	tiles = {"geominer_hornfels_top.png", "geominer_hornfels_top.png", "geominer_hornfels.png", "geominer_hornfels.png", "geominer_hornfels.png", "geominer_hornfels.png"},
@@ -387,6 +390,7 @@ minetest.register_node("geominer:hornfels_falling", {
 })
 
 minetest.register_node("geominer:scoria_falling", {
+  drop = "geominer:scoria",
   walkable = true,
 	description = "Scoria falling",
 	tiles = {"geominer_scoria.png", "geominer_scoria.png", "geominer_scoria.png", "geominer_scoria.png", "geominer_scoria.png", "geominer_scoria.png"},
@@ -397,6 +401,7 @@ minetest.register_node("geominer:scoria_falling", {
 })
 
 minetest.register_node("geominer:limestone_falling", {
+  drop = "geominer:limestone",
   walkable = true,
 	description = "Limestone falling",
 	tiles = {"geominer_limestone.png", "geominer_limestone.png", "geominer_limestone.png", "geominer_limestone.png", "geominer_limestone.png", "geominer_limestone.png"},
@@ -407,6 +412,7 @@ minetest.register_node("geominer:limestone_falling", {
 })
 
 minetest.register_node("geominer:slate_falling", {
+  drop = "geominer:slate",
   walkable = true,
 	description = "Slate falling",
 	tiles = {"geominer_slate.png", "geominer_slate.png", "geominer_slate.png", "geominer_slate.png", "geominer_slate.png", "geominer_slate.png"},
@@ -417,6 +423,7 @@ minetest.register_node("geominer:slate_falling", {
 })
 
 minetest.register_node("geominer:gneiss_falling", {
+  drop = "geominer:gneiss",
   walkable = true,
 	description = "Gneiss falling",
 	tiles = {"geominer_gneiss_top.png", "geominer_gneiss_top.png", "geominer_gneiss.png", "geominer_gneiss.png", "geominer_gneiss.png", "geominer_gneiss.png"},
@@ -427,6 +434,7 @@ minetest.register_node("geominer:gneiss_falling", {
 })
 
 minetest.register_node("geominer:marble_falling", {
+  drop = "geominer:marble",
   walkable = true,
 	description = "Marble falling",
 	tiles = {"geominer_marble.png", "geominer_marble.png", "geominer_marble.png", "geominer_marble.png", "geominer_marble.png", "geominer_marble.png"},
@@ -437,6 +445,7 @@ minetest.register_node("geominer:marble_falling", {
 })
 
 minetest.register_node("geominer:peridotite_falling", {
+  drop = "geominer:peridotite",
   walkable = true,
 	description = "Peridotite falling",
 	tiles = {"geominer_peridotite_top.png", "geominer_peridotite_top.png", "geominer_peridotite.png", "geominer_peridotite.png", "geominer_peridotite.png", "geominer_peridotite.png"},
@@ -447,6 +456,7 @@ minetest.register_node("geominer:peridotite_falling", {
 })
 
 minetest.register_node("geominer:normal_stone_falling", {
+  drop = "default:stone",
   walkable = true,
 	description = "Stone falling",
 	tiles = {"default_stone.png", "default_stone.png", "default_stone.png", "default_stone.png", "default_stone.png", "default_stone.png"},
