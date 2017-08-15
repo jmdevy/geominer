@@ -1,25 +1,53 @@
-local air = minetest.get_content_id("air")
-local ceiling_node_positions = {{x=-1, y=-1, z=-1}}
-local array_index = 0
-local search_or_spawn = 0 --false means search and true means spawn cave-in blocks
+local search_or_spawn = 0 --false means search and true means spawn cave-in blocks/flood
 local time_track = 0
 local cavein_time = 0 --Tracker for the current time the cave-in has been going on
 local players_to_hurt = {} --All of the players around the player that started the cave-in event. These players will take damge upon impact
 
-local event_max_chance = 800 --The bigger the number the rarer the flood/cave-in
 local min_cavein_time = 10  --The minimum time a cave-in will last
 local max_cavin_time = 25   --The maximum time a cave-in will last
-local time_to_check = 120 --How many seconds to go before randomly deciding to start another event (flood/cave-in)
 
 local max_flood_life = 1500 --The bigger this number the longer a flood will last before turning into regular water
 local flood_life = max_flood_life --tracks the current flood life
 
+--This stuff is used for finding cave-in blocks
+local data
+local e1, e2
+local area
+
+--Table of blocks that will fall
+local nodes_to_fall = {}
 
 
 --Function to round to a decimal to a certain deciaml place
 function round(num, numDecimalPlaces)
   local mult = 10^(numDecimalPlaces or 0)
   return math.floor(num * mult + 0.5) / mult
+end
+
+local c_air = minetest.get_content_id("air")
+local c_ignore = minetest.get_content_id("ignore")
+
+--Ids of the nodes that will be allowed to fall
+local cavein_ids = {}
+cavein_ids[1] = {id=minetest.get_content_id("geominer:diorite"), falling_name="geominer:diorite_falling"}
+cavein_ids[2] = {id=minetest.get_content_id("geominer:granite"), falling_name="geominer:granite_falling"}
+cavein_ids[3] = {id=minetest.get_content_id("geominer:hornfels"), falling_name="geominer:hornfels_falling"}
+cavein_ids[4] = {id=minetest.get_content_id("geominer:scoria"), falling_name="geominer:scoria_falling"}
+cavein_ids[5] = {id=minetest.get_content_id("geominer:limestone"), falling_name="geominer:limestone_falling"}
+cavein_ids[6] = {id=minetest.get_content_id("geominer:slate"), falling_name="geominer:slate_falling"}
+cavein_ids[7] = {id=minetest.get_content_id("geominer:gneiss"), falling_name="geominer:gneiss_falling"}
+cavein_ids[8] = {id=minetest.get_content_id("geominer:marble"), falling_name="geominer:marble_falling"}
+cavein_ids[9] = {id=minetest.get_content_id("geominer:peridotite"), falling_name="geominer:peridotite_falling"}
+cavein_ids[10] = {id=minetest.get_content_id("default:stone"), falling_name="geominer:normal_stone_falling"}
+cavein_ids[11] = {id=minetest.get_content_id("geominer:hell_stone"), falling_name="geominer:normal_stone_falling"}
+
+function GetFallingNode(id)
+  for index, value in ipairs(cavein_ids) do
+      if value.id == id then
+          return value.falling_name
+      end
+  end
+  return nil
 end
 
 
@@ -44,43 +72,46 @@ if underground_events == "true" then
         end
       end
         
-      if array_index > 0 then
-        rand_index = math.random(1, array_index-1)
+      if #nodes_to_fall > 0 then
+        rand_index = math.random(1, #nodes_to_fall)
       end
       
-      --make the nodes fall
-      minetest.set_node(ceiling_node_positions[rand_index], {name="default:gravel"})
-      minetest.check_for_falling(ceiling_node_positions[rand_index])
+      --make the nodes fall. Also check if it is an air node
+      if data[area:index(nodes_to_fall[rand_index].pos.x, nodes_to_fall[rand_index].pos.y, nodes_to_fall[rand_index].pos.z)] ~= c_air then
+        minetest.set_node(nodes_to_fall[rand_index].pos, {name=nodes_to_fall[rand_index].falling_node})
+        minetest.check_for_falling(nodes_to_fall[rand_index].pos)
+      end
       
-      --Get the node above the node that fell so it has a cnace to fall aswell
-      ceiling_node_positions[rand_index].y = ceiling_node_positions[rand_index].y + 1
+      --Get the node above the node that fell so it has a chance to fall aswell. Also check if it is an air node
+      if data[area:index(nodes_to_fall[rand_index].pos.x, nodes_to_fall[rand_index].pos.y+1, nodes_to_fall[rand_index].pos.z)] ~= c_air then
+        nodes_to_fall[rand_index].pos.y = nodes_to_fall[rand_index].pos.y + 1
+      end
       
       --Check if cave-in should end
       if time_track > cavein_time then --if after time then go back and randomly check for cave-in
         
         --Reset vars
         search_or_spawn = 0
-        array_index = 0
         time_track = 0
-        ceiling_node_positions = {{x=-1, y=-1, z=-1}}
         cavein_time = 0
         players_to_hurt = {}
+        nodes_to_fall = {}
       end
       
-    elseif time_track > time_to_check then --Two mintues
+    elseif time_track > underground_event_check_time then
 
       for _,player in ipairs(minetest.get_connected_players()) do
         
         --Get the player's position
         player_pos = player:getpos()
         
-        --Cave-ins only happen below -300 blocks
+        --Cave-ins only happen below the first layer of hard blocks
         if player_pos.y < first_layer_start then
-          if math.random(1, event_max_chance) == 2 then --One in whatever chance of a cave-in happening
+          if math.random(1, underground_event_chance) == 2 then --One in whatever chance of a cave-in happening
           
             vox_manip = minetest.get_voxel_manip({x=player_pos.x-8, y=player_pos.y-1, z=player_pos.z-8}, {x=player_pos.x+8, y=player_pos.y+8, z=player_pos.z+8})
             
-            local data = vox_manip:get_data()
+            data = vox_manip:get_data()
             e1, e2 = vox_manip:get_emerged_area()
             area = VoxelArea:new{MinEdge=e1, MaxEdge=e2}
             
@@ -126,13 +157,16 @@ if underground_events == "true" then
                 
                 temp_pos = area:position(i)
                 temp_pos.y = temp_pos.y+1
-                ceiling_node_name = vox_manip:get_node_at({x=temp_pos.x, y=temp_pos.y, z=temp_pos.z}).name
                 
-                if data[i] == air and ceiling_node_name ~= "air" and ceiling_node_name ~= "ignore"then
-                  ceiling_node_positions[array_index] = temp_pos
-                  array_index = array_index + 1
+                ceiling_node_index = area:index(temp_pos.x, temp_pos.y, temp_pos.z)
+                
+                --Only make allow hard stone and normal stone to fall 
+                local falling_node_name = GetFallingNode(data[ceiling_node_index])
+                if data[i] == c_air and falling_node_name ~= nil then
+                  nodes_to_fall[#nodes_to_fall+1] = {pos=temp_pos, falling_node=falling_node_name}
+                  --ceiling_node_positions[#ceiling_node_positions + 1] = temp_pos
                   search_or_spawn = search_or_spawn + 1
-                end
+                end        
               end
             end
             

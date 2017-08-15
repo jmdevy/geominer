@@ -355,6 +355,121 @@ minetest.register_node("geominer:peridotite", {
 
 
 
+--******Falling nodes for cave-ins
+minetest.register_node("geominer:diorite_falling", {
+  walkable = true,
+	description = "diorite falling",
+	tiles = {"geominer_diorite.png"},
+	is_ground_content = true,
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 4, falling_node = 1, not_in_creative_inventory = 1}
+})
+
+minetest.register_node("geominer:granite_falling", {
+  walkable = true,
+	description = "granite falling",
+	tiles = {"geominer_granite.png"},
+	is_ground_content = true,
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 5, falling_node = 1, not_in_creative_inventory = 1}
+})
+
+minetest.register_node("geominer:hornfels_falling", {
+  walkable = true,
+	description = "hornfels falling",
+	tiles = {"geominer_hornfels_top.png", "geominer_hornfels_top.png", "geominer_hornfels.png", "geominer_hornfels.png", "geominer_hornfels.png", "geominer_hornfels.png"},
+	is_ground_content = true,
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 6, falling_node = 1, not_in_creative_inventory = 1}
+})
+
+minetest.register_node("geominer:scoria_falling", {
+  walkable = true,
+	description = "Scoria falling",
+	tiles = {"geominer_scoria.png", "geominer_scoria.png", "geominer_scoria.png", "geominer_scoria.png", "geominer_scoria.png", "geominer_scoria.png"},
+	is_ground_content = true,
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 7, falling_node = 1, not_in_creative_inventory = 1}
+})
+
+minetest.register_node("geominer:limestone_falling", {
+  walkable = true,
+	description = "Limestone falling",
+	tiles = {"geominer_limestone.png", "geominer_limestone.png", "geominer_limestone.png", "geominer_limestone.png", "geominer_limestone.png", "geominer_limestone.png"},
+	is_ground_content = true,
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 8, falling_node = 1, not_in_creative_inventory = 1}
+})
+
+minetest.register_node("geominer:slate_falling", {
+  walkable = true,
+	description = "Slate falling",
+	tiles = {"geominer_slate.png", "geominer_slate.png", "geominer_slate.png", "geominer_slate.png", "geominer_slate.png", "geominer_slate.png"},
+	is_ground_content = true,
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 9, falling_node = 1, not_in_creative_inventory = 1}
+})
+
+minetest.register_node("geominer:gneiss_falling", {
+  walkable = true,
+	description = "Gneiss falling",
+	tiles = {"geominer_gneiss_top.png", "geominer_gneiss_top.png", "geominer_gneiss.png", "geominer_gneiss.png", "geominer_gneiss.png", "geominer_gneiss.png"},
+	is_ground_content = true,
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 10, falling_node = 1, not_in_creative_inventory = 1}
+})
+
+minetest.register_node("geominer:marble_falling", {
+  walkable = true,
+	description = "Marble falling",
+	tiles = {"geominer_marble.png", "geominer_marble.png", "geominer_marble.png", "geominer_marble.png", "geominer_marble.png", "geominer_marble.png"},
+	is_ground_content = true,
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 11, falling_node = 1, not_in_creative_inventory = 1}
+})
+
+minetest.register_node("geominer:peridotite_falling", {
+  walkable = true,
+	description = "Peridotite falling",
+	tiles = {"geominer_peridotite_top.png", "geominer_peridotite_top.png", "geominer_peridotite.png", "geominer_peridotite.png", "geominer_peridotite.png", "geominer_peridotite.png"},
+	is_ground_content = true,
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 12, falling_node = 1, not_in_creative_inventory = 1}
+})
+
+minetest.register_node("geominer:normal_stone_falling", {
+  walkable = true,
+	description = "Stone falling",
+	tiles = {"default_stone.png", "default_stone.png", "default_stone.png", "default_stone.png", "default_stone.png", "default_stone.png"},
+	is_ground_content = true,
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 12, falling_node = 1, not_in_creative_inventory = 1}
+})
+
+minetest.register_node("geominer:hell_stone_falling", {
+  walkable = true,
+	description = "Hell Stone falling",
+	tiles = {"geominer_hell_stone.png"},
+	is_ground_content = true,
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 10, falling_node = 1, not_in_creative_inventory = 1},
+  paramtype = "light",
+  light_source = 3,
+})
+
+
+
 --************Ore Nodes
 minetest.register_node("geominer:ore_beryl", {
   walkable = true,

@@ -10,6 +10,8 @@ _geo.c = {}   -- configuration (defaults read from settingtypes.txt files)
 
 first_layer_start = 0
 layer_width = 0
+underground_event_chance = 800
+underground_event_check_time = 120
 
 --Global settings that will be accessed by other scripts
 --Sadly I define these as bool, but they turn into strings and converting
@@ -63,6 +65,9 @@ _geo.i = function ()
     
     first_layer_start = tonumber(_geo.g("first_layer_start", false))
     layer_width = tonumber(_geo.g("layer_width", false))
+    underground_event_chance = tonumber(_geo.g("underground_event_chance", false))
+    underground_event_check_time = tonumber(_geo.g("underground_event_check_time", false))
+    
     stone_layers = _geo.g("stone_layers", false)
     dungeon_saplings = _geo.g("dungeon_saplings", false)
     underground_events = _geo.g("underground_events", false)

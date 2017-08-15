@@ -13,9 +13,14 @@ cavein_event (Cave-in Event) bool true
 #Toggles flash floods.
 flash_flood_event (Flash Flood Event) bool true
 
+#Underground Event chance: higher means rarer
+underground_event_chance (Underground Event chance: higher=rarer) int 800
+
+#Underground Event Check Time: higher means it takes longer to check
+underground_event_check_time (Underground Event Check Time: higher=longer until event occurs) int 120
+
 #Toggles ore nodes that spawn called 'gas.' gas explodes when the player gets near it.
 gas_spawn (Gas Spawn) bool true
-
 
 #Set this to where you want the first layer of hardstone to spawn. Not accurate, it sets per chunk size. The highest it can go is -100.
 first_layer_start (First Layer Start) int -300 
