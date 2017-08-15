@@ -155,18 +155,14 @@ if underground_events == "true" then
               --Find nodes that are on the ceiling of the cave, meaning they have air under them to fall into
               for i in area:iterp(e1, e2) do
                 
-                temp_pos = area:position(i)
-                temp_pos.y = temp_pos.y+1
-                
-                ceiling_node_index = area:index(temp_pos.x, temp_pos.y, temp_pos.z)
-                
-                --Only make allow hard stone and normal stone to fall 
-                local falling_node_name = GetFallingNode(data[ceiling_node_index])
-                if data[i] == c_air and falling_node_name ~= nil then
-                  nodes_to_fall[#nodes_to_fall+1] = {pos=temp_pos, falling_node=falling_node_name}
-                  --ceiling_node_positions[#ceiling_node_positions + 1] = temp_pos
-                  search_or_spawn = search_or_spawn + 1
-                end        
+                  local to_fall_pos = area:position(i)
+                  local check_below_pos_index = area:index(to_fall_pos.x, to_fall_pos.y-1, to_fall_pos.z)
+                  
+                  local falling_node_name = GetFallingNode(data[i])
+                  if data[check_below_pos_index] == c_air and falling_node_name ~= nil then
+                      nodes_to_fall[#nodes_to_fall+1] = {pos=to_fall_pos, falling_node=falling_node_name}
+                      search_or_spawn = search_or_spawn + 1
+                  end
               end
             end
             
