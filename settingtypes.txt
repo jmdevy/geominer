@@ -23,8 +23,14 @@ first_layer_start (First Layer Start) int -300
 #How many blocks deep each layer is.
 layer_width (Layer Width) int 400
 
-#Toggles spawning of crystals that drop glow entites
+#Toggles spawning of crystals that drop glow entites.
 spawn_glow_crystals (Spawn Glow Crystals) bool true
 
 #Toggles the dropping of glow entities from glow crystals
 drop_glow_entities (Drop Glow Entities) bool true
+
+#Turns hell layer on and off.
+hell (Hell) bool true
+
+#Turns hell blowers on and off.
+spawn_hell_blowers (Spawn Hell Blowers) bool true

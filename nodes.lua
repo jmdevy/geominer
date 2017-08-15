@@ -15,9 +15,6 @@ minetest.register_node("geominer:bush_stem_beryl", {
 		fixed = {-7 / 16, -0.5, -7 / 16, 7 / 16, 0.54, 7 / 16},
 	},
 })
-
-
-
 minetest.register_node("geominer:sapling_beryl", {
 	description = "Beryl Bush Sapling",
 	drawtype = "plantlike",
@@ -30,7 +27,6 @@ minetest.register_node("geominer:sapling_beryl", {
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
 })
-
 
 minetest.register_node("geominer:bush_stem_emerald", {
 	description = "Emerald Bush Stem",
@@ -61,7 +57,6 @@ minetest.register_node("geominer:sapling_emerald", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-
 minetest.register_node("geominer:bush_stem_hematite", {
 	description = "Hematite Bush Stem",
 	drawtype = "plantlike",
@@ -90,7 +85,6 @@ minetest.register_node("geominer:sapling_hematite", {
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
 })
-
 
 minetest.register_node("geominer:bush_stem_sapphire", {
 	description = "Sapphire Bush Stem",
@@ -121,7 +115,6 @@ minetest.register_node("geominer:sapling_sapphire", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-
 minetest.register_node("geominer:bush_stem_agate", {
 	description = "Agate Bush Stem",
 	drawtype = "plantlike",
@@ -150,7 +143,6 @@ minetest.register_node("geominer:sapling_agate", {
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
 })
-
 
 minetest.register_node("geominer:bush_stem_ruby", {
 	description = "Ruby Bush Stem",
@@ -181,7 +173,6 @@ minetest.register_node("geominer:sapling_ruby", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-
 minetest.register_node("geominer:bush_stem_larimar", {
 	description = "Larimar Bush Stem",
 	drawtype = "plantlike",
@@ -210,7 +201,6 @@ minetest.register_node("geominer:sapling_larimar", {
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
 })
-
 
 minetest.register_node("geominer:bush_stem_sunstone", {
 	description = "Sunstone Bush Stem",
@@ -241,7 +231,6 @@ minetest.register_node("geominer:sapling_sunstone", {
 	sounds = default.node_sound_leaves_defaults(),
 })
 
-
 minetest.register_node("geominer:bush_stem_moonstone", {
 	description = "Moonstone Bush Stem",
 	drawtype = "plantlike",
@@ -270,11 +259,6 @@ minetest.register_node("geominer:sapling_moonstone", {
 	groups = {snappy = 2, dig_immediate = 3, flammable = 2, attached_node = 1, sapling = 1},
 	sounds = default.node_sound_leaves_defaults(),
 })
-
-
-
-
-
 
 
 
@@ -371,9 +355,6 @@ minetest.register_node("geominer:peridotite", {
 
 
 
-
-
-
 --************Ore Nodes
 minetest.register_node("geominer:ore_beryl", {
   walkable = true,
@@ -396,7 +377,6 @@ minetest.register_ore({
     y_max     = first_layer_start,
 })
 
-
 minetest.register_node("geominer:ore_emerald", {
   walkable = true,
 	description = "Emerald Ore",
@@ -417,7 +397,6 @@ minetest.register_ore({
     y_min     = _geo.min(10),
     y_max     = first_layer_start,
 })
-
 
 minetest.register_node("geominer:sapphire_ore", {
   walkable = true,
@@ -440,7 +419,6 @@ minetest.register_ore({
     y_max     = first_layer_start,
 })
 
-
 minetest.register_node("geominer:hematite_ore", {
   walkable = true,
 	description = "Hematite Ore",
@@ -461,7 +439,6 @@ minetest.register_ore({
     y_min     = _geo.min(10),
     y_max     = first_layer_start,
 })
-
 
 minetest.register_node("geominer:agate_ore", {
   walkable = true,
@@ -484,7 +461,6 @@ minetest.register_ore({
     y_max     = first_layer_start,
 })
 
-
 minetest.register_node("geominer:ruby_ore", {
   walkable = true,
 	description = "Ruby Ore",
@@ -505,7 +481,6 @@ minetest.register_ore({
     y_min     = _geo.min(10),
     y_max     = first_layer_start,
 })
-
 
 minetest.register_node("geominer:larimar_ore", {
   walkable = true,
@@ -528,7 +503,6 @@ minetest.register_ore({
     y_max     = first_layer_start,
 })
 
-
 minetest.register_node("geominer:sunstone_ore", {
   walkable = true,
 	description = "Sunstone Ore",
@@ -549,7 +523,6 @@ minetest.register_ore({
     y_min     = _geo.min(10),
     y_max     = first_layer_start,
 })
-
 
 minetest.register_node("geominer:moonstone_ore", {
   walkable = true,
@@ -574,38 +547,126 @@ minetest.register_ore({
 
 
 
+--Register the crystal node that drops entities
+minetest.register_node("geominer:crystal", {
+  walkable = true,
+	description = "Crystal stalagmite",
+	tiles = {"geominer_crystal.png"},
+	is_ground_content = true,
+  diggable = true,
+  drop = "geominer:glow_blue_drop 3",
+  paramtype = "light",
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 3},
+  light_source = 10,
+})
+minetest.register_node("geominer:fire_crystal", {
+  walkable = true,
+	description = "Crystal stalagmite",
+	tiles = {"geominer_fire_crystal.png"},
+	is_ground_content = true,
+  diggable = true,
+  drop = "geominer:fire_crystal",
+  paramtype = "light",
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 3},
+  light_source = 10,
+})
+
+if spawn_glow_crystals == "true" then
+
+minetest.register_ore({
+    ore_type       = "scatter",
+    ore            = "geominer:fire_crystal",
+    wherein        = "geominer:hell_stone",
+    clust_scarcity = 2850,
+    clust_num_ores = 1,
+    clust_size     = 1,
+    y_min     = _geo.max(10)-80,
+    y_max     = _geo.max(10),
+})
+minetest.register_ore({
+    ore_type       = "scatter",
+    ore            = "geominer:crystal",
+    wherein        = {"geominer:peridotite", "geominer:marble", "geominer:gneiss", "geominer:slate", "geominer:limestone", "geominer:scoria", "geominer:hornfels",
+      "geominer:granite", "geominer:diorite", },
+    clust_scarcity = 2850,
+    clust_num_ores = 1,
+    clust_size     = 1,
+    y_min     = _geo.min(10),
+    y_max     = first_layer_start,
+})
+end
 
 
 
-minetest.register_node("geominer:creepy_crawlies", {
-	description = "EWWWW Source",
-	drawtype = "allfaces_optional",
+--Hell nodes/ores
+minetest.register_node("geominer:hell_stone", {
+  walkable = true,
+	description = "Hell Stone",
+	tiles = {"geominer_hell_stone.png"},
+	is_ground_content = true,
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 10},
+  paramtype = "light",
+  light_source = 3,
+})
+
+minetest.register_node("geominer:hell_blower", {
+  walkable = true,
+	description = "Hell blower",
+	is_ground_content = true,
+  tiles = {"geominer_hell_blower.png"},
+  diggable = true,
+	sounds = default.node_sound_stone_defaults(),
+  groups = {cracky = 10, oddly_breakable_by_hand=10},
+  paramtype = "light",
+  light_source = 3,
+})
+
+if spawn_hell_blowers == "true" then
+  minetest.register_ore({
+      ore_type       = "scatter",
+      ore            = "geominer:hell_blower",
+      wherein        = "geominer:hell_stone",
+      clust_scarcity = 2050,
+      clust_num_ores = 1,
+      clust_size     = 1,
+      y_min     = _geo.max(10)-80,
+      y_max     = _geo.max(10),
+  })
+end
+
+minetest.register_node("geominer:hell_lava_source", {
+	description = "Hell Lava Source",
+	drawtype = "liquid",
 	tiles = {
 		{
-			name = "creepy_crawlies.png",
+			name = "geominer_hell_lava_source.png",
 			animation = {
 				type = "vertical_frames",
 				aspect_w = 16,
 				aspect_h = 16,
-				length = 2.0,
+				length = 3.0,
 			},
 		},
 	},
 	special_tiles = {
-		-- New-style water source material (mostly unused)
+		-- New-style lava source material (mostly unused)
 		{
-			name = "creepy_crawlies.png",
+			name = "geominer_hell_lava_source.png",
 			animation = {
 				type = "vertical_frames",
 				aspect_w = 16,
 				aspect_h = 16,
-				length = 2.0,
+				length = 3.0,
 			},
 			backface_culling = false,
 		},
 	},
-	alpha = 160,
 	paramtype = "light",
+	light_source = default.LIGHT_MAX - 1,
 	walkable = false,
 	pointable = false,
 	diggable = false,
@@ -613,11 +674,13 @@ minetest.register_node("geominer:creepy_crawlies", {
 	is_ground_content = false,
 	drop = "",
 	drowning = 1,
-	liquid_viscosity = 1,
-	post_effect_color = {a = 103, r = 30, g = 60, b = 90},
-	groups = {water = 3, liquid = 3, puts_out_fire = 1, cools_lava = 1},
-	sounds = default.node_sound_water_defaults(),
+	liquidtype = "source",
+	liquid_alternative_flowing = "geominer:hell_lava_source",
+	liquid_alternative_source = "geominer:hell_lava_source",
+	liquid_viscosity = 7,
+	liquid_renewable = false,
+  liquid_range = 0,
+	damage_per_second = 4 * 2,
+	post_effect_color = {a = 191, r = 255, g = 64, b = 0},
+	groups = {lava = 3, liquid = 2, igniter = 1},
 })
-
-
-

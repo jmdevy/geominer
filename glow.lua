@@ -1,7 +1,4 @@
-
-
-
-
+--This node is invisble but emits light. This is added and removed when certain entities move
 minetest.register_node("geominer:glow_drop", {
 	description = "glow_drop",
 	drawtype = "airlike",
@@ -15,11 +12,16 @@ minetest.register_node("geominer:glow_drop", {
   light_source = 14,
 })
 
+
+
+--Is this stuff going to mess up if more than one player uses a glowstick at the same time?
 local starting_throw = 1.1
 local count = starting_throw
 local max_throw = 24
 local throw_multiplier = 1.089
 local pixel_count = 0
+
+
 
 minetest.register_craftitem("geominer:glowstick_throw", {
 	description = "Glowstick throw",
@@ -35,9 +37,6 @@ minetest.register_craftitem("geominer:glowstick_throw", {
   stack_max = 10,
   
   on_use = function(itemstack, user, pointed_thing)
-    
-    
-    
     if count > 1.8 and user:get_player_control().LMB then
     
       obj = minetest.add_entity({x=user:getpos().x, y=user:getpos().y+1.2, z=user:getpos().z}, "geominer:glow_en_throw")
@@ -64,7 +63,6 @@ minetest.register_craftitem("geominer:glowstick_throw", {
 
 
 
-
 minetest.register_entity("geominer:glow_en_throw", {
 	initial_properties = {
 		hp_max = 1,
@@ -80,21 +78,12 @@ minetest.register_entity("geominer:glow_en_throw", {
     physical = true,
     collide_with_objects = true
 	},
-
-  get_staticdata = function(self)
-    
-  end,
-
-
-
 	on_activate = function(self, staticdata, dtime_s)
     
     last_glow_pos = self.object:getpos()
-
 	end,
 
   last_glow_pos = {x=-1, y=-1, z=-1},
-  
   
 	on_step = function(self, dtime)
 
@@ -130,11 +119,6 @@ minetest.register_entity("geominer:glow_en_throw", {
 
 
 
-
-
-
-
-
 minetest.register_craftitem("geominer:glowstick", {
 	description = "Glowstick",
 	drawtype = "normal",
@@ -163,11 +147,6 @@ minetest.register_craftitem("geominer:glowstick", {
 
 
 
-
-
-
-
-
 minetest.register_entity("geominer:glow_en", {
 	initial_properties = {
 		hp_max = 1,
@@ -184,18 +163,11 @@ minetest.register_entity("geominer:glow_en", {
     collide_with_objects = true
 	},
 
-  get_staticdata = function(self)
-    
-  end,
-
-
-
 	on_activate = function(self, staticdata, dtime_s)
     last_glow_pos = self.object:getpos()
 	end,
 
   last_glow_pos = {x=-1, y=-1, z=-1},
-  
   
 	on_step = function(self, dtime)
 
@@ -228,6 +200,3 @@ minetest.register_entity("geominer:glow_en", {
 
 	end,
 })
-
-
-

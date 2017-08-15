@@ -3,22 +3,20 @@ local ceiling_node_positions = {{x=-1, y=-1, z=-1}}
 local array_index = 0
 local search_or_spawn = 0 --false means search and true means spawn cave-in blocks
 local time_track = 0
-local cavein_time = 0
-local players_to_hurt = {}
-local sound_handle
+local cavein_time = 0 --Tracker for the current time the cave-in has been going on
+local players_to_hurt = {} --All of the players around the player that started the cave-in event. These players will take damge upon impact
 
-local cavein_max_chance = 1000
-local min_cavein_time = 10
-local max_cavin_time = 25
-local time_to_check = 130 --seconds
+local event_max_chance = 800 --The bigger the number the rarer the flood/cave-in
+local min_cavein_time = 10  --The minimum time a cave-in will last
+local max_cavin_time = 25   --The maximum time a cave-in will last
+local time_to_check = 120 --How many seconds to go before randomly deciding to start another event (flood/cave-in)
 
-local temp_player
-
-local flood_life = 1500
+local max_flood_life = 1500 --The bigger this number the longer a flood will last before turning into regular water
+local flood_life = max_flood_life --tracks the current flood life
 
 
 
-
+--Function to round to a decimal to a certain deciaml place
 function round(num, numDecimalPlaces)
   local mult = 10^(numDecimalPlaces or 0)
   return math.floor(num * mult + 0.5) / mult
@@ -26,17 +24,14 @@ end
 
 
 
+--Only have floods/cave-ins if the user says so
 if underground_events == "true" then
-
-
   minetest.register_globalstep(function(dtime)
       time_track = time_track + dtime
     if search_or_spawn > 2 then
       
-
       --Loop through the players
-      for i3,player in ipairs(players_to_hurt) do
-         
+      for i3, player in ipairs(players_to_hurt) do
         
         --Get falling node that could be on player
         falling_objects = minetest.get_objects_inside_radius(player:getpos(), 1) 
@@ -49,7 +44,6 @@ if underground_events == "true" then
         end
       end
         
-        
       if array_index > 0 then
         rand_index = math.random(1, array_index-1)
       end
@@ -57,13 +51,12 @@ if underground_events == "true" then
       --make the nodes fall
       minetest.set_node(ceiling_node_positions[rand_index], {name="default:gravel"})
       minetest.check_for_falling(ceiling_node_positions[rand_index])
+      
+      --Get the node above the node that fell so it has a cnace to fall aswell
       ceiling_node_positions[rand_index].y = ceiling_node_positions[rand_index].y + 1
       
       --Check if cave-in should end
       if time_track > cavein_time then --if after time then go back and randomly check for cave-in
-        
-        --Stop sound
-        --minetest.sound_stop(sound_handle)
         
         --Reset vars
         search_or_spawn = 0
@@ -83,7 +76,7 @@ if underground_events == "true" then
         
         --Cave-ins only happen below -300 blocks
         if player_pos.y < first_layer_start then
-          if math.random(1, cavein_max_chance) == 2 then --One in whatever chance of a cave-in happening
+          if math.random(1, event_max_chance) == 2 then --One in whatever chance of a cave-in happening
           
             vox_manip = minetest.get_voxel_manip({x=player_pos.x-8, y=player_pos.y-1, z=player_pos.z-8}, {x=player_pos.x+8, y=player_pos.y+8, z=player_pos.z+8})
             
@@ -91,12 +84,15 @@ if underground_events == "true" then
             e1, e2 = vox_manip:get_emerged_area()
             area = VoxelArea:new{MinEdge=e1, MaxEdge=e2}
             
+            --Used to decide if the event should be a cave-in or flood
             water_cavin = math.random(1, 2)
             
             if water_cavin == 1 and flash_flood_event == "true" then  --flash-flood
               
+              --reset life of flood
               flood_life = 0
               
+              --Spawn the flood only in small caves
               for i in area:iterp(e1, e2) do
                 
                 temp_pos = area:position(i)
@@ -112,7 +108,6 @@ if underground_events == "true" then
                         check_z_up = vox_manip:get_node_at({x=temp_pos.x, y=temp_pos.y, z=temp_pos.z+10}).name
                         check_z_down = vox_manip:get_node_at({x=temp_pos.x, y=temp_pos.y, z=temp_pos.z-10}).name
                         
-                        
                         if check_y_down ~= "air" and check_y_down ~= "ignore" and
                         check_x_down ~= "air" and check_x_down ~= "ignore" and
                         check_z_down ~= "air" and check_z_down ~= "ignore" and
@@ -125,13 +120,13 @@ if underground_events == "true" then
                 end
               end
             elseif cavein_event == "true" then --cave-in
-            
+              
+              --Find nodes that are on the ceiling of the cave, meaning they have air under them to fall into
               for i in area:iterp(e1, e2) do
                 
                 temp_pos = area:position(i)
                 temp_pos.y = temp_pos.y+1
                 ceiling_node_name = vox_manip:get_node_at({x=temp_pos.x, y=temp_pos.y, z=temp_pos.z}).name
-                
                 
                 if data[i] == air and ceiling_node_name ~= "air" and ceiling_node_name ~= "ignore"then
                   ceiling_node_positions[array_index] = temp_pos
@@ -141,8 +136,7 @@ if underground_events == "true" then
               end
             end
             
-
-  --        if search_or_spawn then
+            --if search_or_spawn == true then find a random time between given ranges
             cavein_time = math.random(min_cavein_time, max_cavin_time)
 
             --Get all the players in a certain radius so they can be hurt by "__builtin:falling_node" (gravel)
@@ -153,14 +147,8 @@ if underground_events == "true" then
                 table.insert(players_to_hurt, object_to_hurt)
               end
             end
-            
-  --          sound_handle = minetest.sound_play("earth", {
-  --            pos = player_pos,
-  --            max_hear_distance = 100,
-  --            gain = 10.0,
-  --          })
-          
-          time_track = 0
+            --reset
+            time_track = 0
 
           end
         end
@@ -170,8 +158,8 @@ if underground_events == "true" then
 
 end
 
---Node and abm defs for water that floods caves
 
+--Node and abm defs for water that floods caves
 minetest.register_node("geominer:water", {
   description = "Geominer Water Source",
   drawtype = "liquid",
@@ -187,7 +175,6 @@ minetest.register_node("geominer:water", {
     },
   },
   special_tiles = {
-    -- New-style water source material (mostly unused)
     {
       name = "default_water_source_animated.png",
       animation = {
@@ -217,15 +204,15 @@ minetest.register_node("geominer:water", {
   groups = {water = 3, liquid = 3, puts_out_fire = 1, cools_lava = 1},
   sounds = default.node_sound_water_defaults(),
   on_construct = function(pos)
-      if flood_life >= 1500 then
+      --If the life if the floods goes over the max then set the nodes to normal water
+      if flood_life >= max_flood_life then
           minetest.set_node(pos, {name="default:water_source"})
       end
   end,
 })
 
 
-
-
+--Without setting the nodes to regular water the flood would go on forever
 minetest.register_abm({
   nodenames = {"geominer:water"},
   neighbors = {"air"},
@@ -234,11 +221,10 @@ minetest.register_abm({
   action = function(pos, node, active_object_count, active_object_count_wider)
     
     flood_life = flood_life + 1
-    
-    if flood_life >= 1500 then
+    --If the life if the floods goes over the max then set the nodes to normal water
+    if flood_life >= max_flood_life then
       minetest.set_node(pos, {name="default:water_source"})
     end
     
   end,
 })
-

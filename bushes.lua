@@ -1,6 +1,5 @@
-
-
 --Documentation of this is here: http://dev.minetest.net/Introduction_to_L-system_trees
+--Register abms for trees
 minetest.register_abm{
         label = "Beryl Tree Growth",
         nodenames = {"geominer:sapling_beryl"},
@@ -251,6 +250,3 @@ minetest.register_abm{
           
         end,
 }
-
-
-

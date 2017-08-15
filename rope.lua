@@ -1,5 +1,3 @@
-
-
 minetest.register_node("geominer:rope", {
 	description = "Rope",
 	drawtype = "mesh",
@@ -18,9 +16,8 @@ minetest.register_node("geominer:rope", {
     break_loop = false
     y_axis = pos.y - 1
     
-    
+    --On placing the node, loop down until hitting ground (may be able to use minetest.line_of_sight)
     while break_loop == false do
-      time_button_track = minetest.get_us_time()
       node = minetest.get_node({x=pos.x, y=y_axis, z=pos.z})
       if node.name == "air" and node.name ~= "ignore" then
         minetest.set_node({x=pos.x, y=y_axis, z=pos.z}, {name="geominer:rope"})
@@ -33,19 +30,14 @@ minetest.register_node("geominer:rope", {
   end,
 
   after_destruct = function(pos, oldnode)
-      
-      
-      
     break_loop_down = false
-    
     y_axis_down = pos.y - 1
     
     if y_axis_down == nil then
         return
     end
-
     
-    
+    --Get rid of rope below the one cut.
     while break_loop_down == false do
 
       node_down = minetest.get_node({x=pos.x, y=y_axis_down, z=pos.z})
@@ -56,9 +48,6 @@ minetest.register_node("geominer:rope", {
       else
         break_loop_down = true
       end
-      
     end
-      
   end,
 })
-

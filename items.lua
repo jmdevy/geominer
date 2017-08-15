@@ -1,5 +1,3 @@
-
-
 --Ore drops
 minetest.register_craftitem("geominer:berly", {
 	description = "Beryl",
@@ -117,4 +115,25 @@ minetest.register_craftitem("geominer:stick_moonstone", {
 	description = "Moonstone Stick",
 	inventory_image = "geominer_stick_moonstone.png",
   wield_image = "geominer_stick_moonstone.png"
+})
+
+
+
+--Hell staff
+minetest.register_craftitem("geominer:hell_staff", {
+	description = "Hell Stick",
+	inventory_image = "geominer_hell_staff.png",
+  wield_image = "geominer_hell_staff.png",
+  on_use = function(itemstack, user, pointed_thing)
+      local pos = minetest.get_pointed_thing_position(pointed_thing, false)
+      if pos ~= nil then
+        tnt.boom(pos, {
+                  name = "geominer:pickaxe_boom",
+                  description = "Fire Gas",
+                  radius = 4,
+                  damage_radius = 0
+                })
+      end
+      return itemstack
+  end
 })

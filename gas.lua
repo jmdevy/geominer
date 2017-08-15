@@ -13,6 +13,8 @@ minetest.register_node("geominer:gas", {
 	sunlight_propagates = true,
 })
 
+
+
 if gas_spawn == "true" then
 
   minetest.register_ore({
@@ -20,18 +22,13 @@ if gas_spawn == "true" then
       ore            = "geominer:gas",
       wherein        = {"default:stone", "geominer:diorite", "geominer:granite", "geominer:hornfels", "geominer:scoria", "geominer:limestone", "geominer:slate", "geominer:gneiss",
         "geominer:marble", "geominer:peridotite"},
-      clust_scarcity = 22000,
-      clust_num_ores = 5,
-      clust_size     = 5,
+      clust_scarcity = 23000,
+      clust_num_ores = 4,
+      clust_size     = 4,
       height_min     = _geo.min(10),   --TODO make it so the ores only spawn in y-axis of the layer, not all the layers.
       height_max     = first_layer_start,
   })
-
 end
-
-
-
-
 
 
 
@@ -42,13 +39,13 @@ minetest.register_abm({
 	chance = 2,
 	action = function(pos, node, active_object_count, active_object_count_wider)
     
-    --Float
+    --Float upwards
     if minetest.get_node({x=pos.x, y=pos.y+1, z=pos.z}).name == "air" then
       minetest.set_node(pos, {name="air"})
       minetest.set_node({x=pos.x, y=pos.y+1, z=pos.z}, {name="geominer:gas"})
     end
   
-    --Go boom!
+    --Go boom if player is in range.
     local all_objects = minetest.get_objects_inside_radius(pos, 3)
     local _,obj
     for _,obj in ipairs(all_objects) do
@@ -62,7 +59,6 @@ minetest.register_abm({
                 })
       end
     end
-  
 	end,
 })
 

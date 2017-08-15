@@ -1,6 +1,4 @@
-
-
---Tools
+--Tools (pickaxes)
 minetest.register_tool("geominer:pick_beryl", {
 	description = "Beryl Pickaxe",
 	inventory_image = "geominer_pick_beryl.png",

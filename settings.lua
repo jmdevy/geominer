@@ -5,11 +5,15 @@ _geo.p = {}   -- mod paths for global access
 _geo.c = {}   -- configuration (defaults read from settingtypes.txt files)
 
 
+--For more info on how this works vist: https://forum.minetest.net/viewtopic.php?f=47&t=18176
 
 
 first_layer_start = 0
 layer_width = 0
 
+--Global settings that will be accessed by other scripts
+--Sadly I define these as bool, but they turn into strings and converting
+--them is too much work for little gain
 stone_layers = true
 dungeon_saplings = true
 underground_events = true
@@ -18,7 +22,8 @@ spawn_glow_crystals = true
 drop_glow_entities = true
 cavein_event = true
 flash_flood_event = true
-
+hell = true
+spawn_hell_blowers = true
 
 --Layer #1 is the first layer of hardstone
 _geo.min = function (layer_num)
@@ -66,6 +71,8 @@ _geo.i = function ()
     drop_glow_entities = _geo.g("drop_glow_entities", false)
     cavein_event = _geo.g("cavein_event", false)
     flash_flood_event = _geo.g("flash_flood_event", false)
+    hell = _geo.g("hell", false)
+    spawn_hell_blowers = _geo.g("spawn_hell_blowers", false)
 end
 
 

@@ -1,7 +1,3 @@
-
-
-
-
 --Recipes Pickaxe
 minetest.register_craft({
 	output = "geominer:pick_beryl",
@@ -83,7 +79,6 @@ minetest.register_craft({
 		{"", "geominer:stick_moonstone", ""}
 	}
 })
-
 
 
 
@@ -178,6 +173,9 @@ minetest.register_craft({
 	}
 })
 
+
+
+--Rope
 minetest.register_craft({
 	output = "geominer:rope 1",
   shapeless = false,
@@ -187,6 +185,7 @@ minetest.register_craft({
 		{"", "default:leaves", ""}
 	}
 })
+
 
 
 --Glowsticks
@@ -207,5 +206,18 @@ minetest.register_craft({
 		{"", "", "dye:blue"},
 		{"", "geominer:glow_blue_drop", ""},
 		{"dye:blue", "", ""}
+	}
+})
+
+
+
+--Hell staff
+minetest.register_craft({
+	output = "geominer:hell_staff 1",
+  shapeless = false,
+	recipe = {
+		{"", "geominer:fire_crystal", ""},
+		{"", "default:stick", ""},
+		{"", "default:stick", ""}
 	}
 })
