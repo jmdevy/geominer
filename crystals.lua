@@ -76,7 +76,7 @@ minetest.register_entity("geominer:glow_en_crystal_fire", {
       tnt.boom(temp_pos, {
                   name = "geominer:fire_gas",
                   description = "Fire Gas",
-                  radius = 1,
+                  radius = 2,
                   damage_radius = 5
                 })
       self.object:remove()
