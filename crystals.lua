@@ -108,7 +108,7 @@ if drop_glow_entities == "true" then
   minetest.register_abm({
     nodenames = {"geominer:fire_crystal"},
     neighbors = {"air"},
-    interval = 5,
+    interval = 7,
     chance = 2,
     action = function(pos, node, active_object_count, active_object_count_wider)
       obj = minetest.add_entity({x=pos.x, y=pos.y-1, z=pos.z}, "geominer:glow_en_crystal_fire")
