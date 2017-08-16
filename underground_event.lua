@@ -77,11 +77,9 @@ if underground_events == "true" then
       end
       
       if nodes_to_fall[rand_index] ~= nil then
-        --make the nodes fall. Also check if it is an air node
-        if data[area:index(nodes_to_fall[rand_index].pos.x, nodes_to_fall[rand_index].pos.y, nodes_to_fall[rand_index].pos.z)] ~= c_air then
-          minetest.set_node(nodes_to_fall[rand_index].pos, {name=nodes_to_fall[rand_index].falling_node})
-          minetest.check_for_falling(nodes_to_fall[rand_index].pos)
-        end
+        --make the nodes fall.
+        minetest.set_node(nodes_to_fall[rand_index].pos, {name=nodes_to_fall[rand_index].falling_node})
+        minetest.check_for_falling(nodes_to_fall[rand_index].pos)
         
         --Get the node above the node that fell so it has a chance to fall aswell. Also check if it is an air node
         if data[area:index(nodes_to_fall[rand_index].pos.x, nodes_to_fall[rand_index].pos.y+1, nodes_to_fall[rand_index].pos.z)] ~= c_air then
@@ -135,7 +133,7 @@ if underground_events == "true" then
                 temp_pos.y = temp_pos.y + 1
                 if temp_pos.y > player_pos.y + 4 then
                     ceiling_node_name = vox_manip:get_node_at({x=temp_pos.x, y=temp_pos.y, z=temp_pos.z}).name
-                    if data[i] == air and ceiling_node_name ~= "air" and ceiling_node_name ~= "ignore"then
+                    if data[i] == c_air and ceiling_node_name ~= "air" and ceiling_node_name ~= "ignore"then
                         check_y_down = vox_manip:get_node_at({x=temp_pos.x, y=temp_pos.y-10, z=temp_pos.z}).name
                         
                         check_x_up = vox_manip:get_node_at({x=temp_pos.x+10, y=temp_pos.y, z=temp_pos.z}).name
