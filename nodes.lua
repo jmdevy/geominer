@@ -463,7 +463,7 @@ minetest.register_node("geominer:normal_stone_falling", {
 	is_ground_content = true,
   diggable = true,
 	sounds = default.node_sound_stone_defaults(),
-  groups = {cracky = 12, falling_node = 1, not_in_creative_inventory = 1}
+  groups = {cracky = 3, falling_node = 1, not_in_creative_inventory = 1}
 })
 
 minetest.register_node("geominer:hell_stone_falling", {
