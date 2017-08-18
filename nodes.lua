@@ -456,7 +456,7 @@ minetest.register_node("geominer:peridotite_falling", {
 })
 
 minetest.register_node("geominer:normal_stone_falling", {
-  drop = "default:stone",
+  drop = "default:cobble",
   walkable = true,
 	description = "Stone falling",
 	tiles = {"default_stone.png", "default_stone.png", "default_stone.png", "default_stone.png", "default_stone.png", "default_stone.png"},
