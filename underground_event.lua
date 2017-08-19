@@ -29,25 +29,26 @@ local c_ignore = minetest.get_content_id("ignore")
 
 --Ids of the nodes that will be allowed to fall
 local cavein_ids = {}
-cavein_ids[1] = {id=minetest.get_content_id("geominer:diorite"), falling_name="geominer:diorite_falling"}
-cavein_ids[2] = {id=minetest.get_content_id("geominer:granite"), falling_name="geominer:granite_falling"}
-cavein_ids[3] = {id=minetest.get_content_id("geominer:hornfels"), falling_name="geominer:hornfels_falling"}
-cavein_ids[4] = {id=minetest.get_content_id("geominer:scoria"), falling_name="geominer:scoria_falling"}
-cavein_ids[5] = {id=minetest.get_content_id("geominer:limestone"), falling_name="geominer:limestone_falling"}
-cavein_ids[6] = {id=minetest.get_content_id("geominer:slate"), falling_name="geominer:slate_falling"}
-cavein_ids[7] = {id=minetest.get_content_id("geominer:gneiss"), falling_name="geominer:gneiss_falling"}
-cavein_ids[8] = {id=minetest.get_content_id("geominer:marble"), falling_name="geominer:marble_falling"}
-cavein_ids[9] = {id=minetest.get_content_id("geominer:peridotite"), falling_name="geominer:peridotite_falling"}
-cavein_ids[10] = {id=minetest.get_content_id("default:stone"), falling_name="geominer:normal_stone_falling"}
-cavein_ids[11] = {id=minetest.get_content_id("geominer:hell_stone"), falling_name="geominer:hell_stone_falling"}
+cavein_ids[1] = minetest.get_content_id("geominer:diorite")
+cavein_ids[2] = minetest.get_content_id("geominer:granite")
+cavein_ids[3] = minetest.get_content_id("geominer:hornfels")
+cavein_ids[4] = minetest.get_content_id("geominer:scoria")
+cavein_ids[5] = minetest.get_content_id("geominer:limestone")
+cavein_ids[6] = minetest.get_content_id("geominer:slate")
+cavein_ids[7] = minetest.get_content_id("geominer:gneiss")
+cavein_ids[8] = minetest.get_content_id("geominer:marble")
+cavein_ids[9] = minetest.get_content_id("geominer:peridotite")
+cavein_ids[10] = minetest.get_content_id("default:stone")
+cavein_ids[11] = minetest.get_content_id("geominer:hell_stone")
 
+--Used for checking and making sure that the stoens that are going to fall are ones that hsould fall.
 function GetFallingNode(id)
   for index, value in ipairs(cavein_ids) do
-      if value.id == id then
-          return value.falling_name
+      if value == id then
+          return true
       end
   end
-  return nil
+  return false
 end
 
 
@@ -78,11 +79,11 @@ if underground_events == "true" then
       
       if nodes_to_fall[rand_index] ~= nil then
         --make the nodes fall.
-        minetest.spawn_falling_node(nodes_to_fall[rand_index].pos)
+        minetest.spawn_falling_node(nodes_to_fall[rand_index])
         
         --Get the node above the node that fell so it has a chance to fall aswell. Also check if it is an air node
-        if data[area:index(nodes_to_fall[rand_index].pos.x, nodes_to_fall[rand_index].pos.y+1, nodes_to_fall[rand_index].pos.z)] ~= c_air then
-          nodes_to_fall[rand_index].pos.y = nodes_to_fall[rand_index].pos.y + 1
+        if data[area:index(nodes_to_fall[rand_index].x, nodes_to_fall[rand_index].y+1, nodes_to_fall[rand_index].z)] ~= c_air then
+          nodes_to_fall[rand_index].y = nodes_to_fall[rand_index].y + 1
         else
           table.remove(nodes_to_fall, rand_index)
         end
@@ -160,9 +161,9 @@ if underground_events == "true" then
                   local to_fall_pos = area:position(i)
                   local check_below_pos_index = area:index(to_fall_pos.x, to_fall_pos.y-1, to_fall_pos.z)
                   
-                  local falling_node_name = GetFallingNode(data[i])
-                  if data[check_below_pos_index] == c_air and falling_node_name ~= nil then
-                      nodes_to_fall[#nodes_to_fall+1] = {pos=to_fall_pos, falling_node=falling_node_name}
+                  local falling_node_chose = GetFallingNode(data[i])
+                  if data[check_below_pos_index] == c_air and falling_node_chose == true then
+                      nodes_to_fall[#nodes_to_fall+1] = to_fall_pos
                       search_or_spawn = search_or_spawn + 1
                   end
               end
