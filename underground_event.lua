@@ -78,8 +78,7 @@ if underground_events == "true" then
       
       if nodes_to_fall[rand_index] ~= nil then
         --make the nodes fall.
-        minetest.set_node(nodes_to_fall[rand_index].pos, {name=nodes_to_fall[rand_index].falling_node})
-        minetest.check_for_falling(nodes_to_fall[rand_index].pos)
+        minetest.spawn_falling_node(nodes_to_fall[rand_index].pos)
         
         --Get the node above the node that fell so it has a chance to fall aswell. Also check if it is an air node
         if data[area:index(nodes_to_fall[rand_index].pos.x, nodes_to_fall[rand_index].pos.y+1, nodes_to_fall[rand_index].pos.z)] ~= c_air then
